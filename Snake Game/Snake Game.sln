@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventana_Juego", "Ventana_Juego\Ventana_Juego.csproj", "{603FEF75-630E-4471-BBCD-848B6A18996F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{603FEF75-630E-4471-BBCD-848B6A18996F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603FEF75-630E-4471-BBCD-848B6A18996F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603FEF75-630E-4471-BBCD-848B6A18996F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603FEF75-630E-4471-BBCD-848B6A18996F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B664D044-2DB5-42B2-B2EB-4C5C8B9468C7}
+	EndGlobalSection
+EndGlobal
