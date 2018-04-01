@@ -10,6 +10,7 @@ namespace Ventana_Juego
 {
     class Cola : objeto
     {
+        //La imagen no esta en el proyecto tener cuidado
         //Image imagen;
         Cola siguiente;
         public Cola(int x, int y)
