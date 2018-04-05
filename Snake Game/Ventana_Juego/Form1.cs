@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using CapaNegocio;
 namespace Ventana_Juego
 {
     public partial class Form1 : Form
@@ -17,8 +17,11 @@ namespace Ventana_Juego
         Comida comida;
         int espacio;
         int xdir = 0, ydir = 0;
-        int puntaje = 1;
+        int puntaje = 1,movimientos = 0;
+        string tipomovimiento = "";
+        string tipomovimientotemp = "";
         Boolean ejex = true, ejey = true;
+        Login lg = new Login();
         public Form1()
         {
             espacio = 10;
@@ -27,18 +30,22 @@ namespace Ventana_Juego
             cabeza = new Cola(10, 10);
             comida = new Comida();
             serialPort1.Open();
+
         }
         public void findeJuego()
         {
             xdir = 0;
             ydir = 0;
             puntaje = 0;
+            movimientos = 0;
             puntos.Text = "0";
+            lblMovimientos.Text = "0";
             ejex = true;
             ejey = true;
             cabeza = new Cola(10, 10);
             comida = new Comida();
             MessageBox.Show("Perdiste");
+            //Guardar Info Reportes
         }
         public void choqueCuerpo()
         {
@@ -76,7 +83,7 @@ namespace Ventana_Juego
 
         public void dibujar()
         {
-            juego.Clear(Color.White);
+            juego.Clear(Color.Yellow);
             cabeza.dibujar(juego);
             comida.dibujar(juego);
         }
@@ -117,12 +124,15 @@ namespace Ventana_Juego
                     ejey = false;
                 }
             }
+            verificarMovimientos();
         }
 
         private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             try
             {
+
+                tipomovimiento = serialPort1.ReadLine().ToString();
                 if (serialPort1.ReadLine().Equals("UP"))
                 {
                     ydir = -espacio;
@@ -158,7 +168,7 @@ namespace Ventana_Juego
             
         }
 
-        public void movimiento()
+        public void Movimiento()
         {
             cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
         }
@@ -167,7 +177,7 @@ namespace Ventana_Juego
         {
 
             dibujar();
-            movimiento();
+            Movimiento();
             choqueCuerpo();
             choquePared();
             if (cabeza.interseccion(comida))
@@ -175,6 +185,16 @@ namespace Ventana_Juego
                 comida.colocar();
                 cabeza.meter();
                 puntos.Text = (puntaje++).ToString();
+            }
+            verificarMovimientos();
+        }
+
+        private void verificarMovimientos()
+        {
+            if (!tipomovimiento.Equals(tipomovimientotemp))
+            {
+                lblMovimientos.Text = (movimientos++).ToString();
+                tipomovimientotemp = tipomovimiento;
             }
         }
     }

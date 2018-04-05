@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventana_Juego", "Ventana_Juego\Ventana_Juego.csproj", "{603FEF75-630E-4471-BBCD-848B6A18996F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "CapaNegocio\CapaNegocio.csproj", "{BA16E4F5-4EAC-487F-82AC-883277513FDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDatos\CapaDatos.csproj", "{8EA2A693-170F-4719-8A29-2AABA1D5DC20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{603FEF75-630E-4471-BBCD-848B6A18996F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{603FEF75-630E-4471-BBCD-848B6A18996F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{603FEF75-630E-4471-BBCD-848B6A18996F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA16E4F5-4EAC-487F-82AC-883277513FDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA16E4F5-4EAC-487F-82AC-883277513FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA16E4F5-4EAC-487F-82AC-883277513FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA16E4F5-4EAC-487F-82AC-883277513FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA2A693-170F-4719-8A29-2AABA1D5DC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA2A693-170F-4719-8A29-2AABA1D5DC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA2A693-170F-4719-8A29-2AABA1D5DC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA2A693-170F-4719-8A29-2AABA1D5DC20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
