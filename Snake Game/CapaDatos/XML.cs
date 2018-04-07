@@ -20,114 +20,127 @@ namespace CapaDatos
             doc.Load(rutaXml);
             
         }
-        
-        public void _Añadir(string id, string clave, string inicios_sesion)
+        /// <summary>
+        /// Crea un nuevo usuario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="clave"></param>
+        /// <param name="inicios_sesion"></param>
+        /// <returns>Retorna un booleano para saber si fue creado o no</returns>
+        public bool _Añadir(string id, string clave, string inicios_sesion)
         {
             doc.Load(rutaXml);
 
-            XmlNode usuario = _Crear_Empleado(id, clave, inicios_sesion);
+            if (!VerificarNombre(id))
+            {
+                XmlNode usuario = _Crear_Empleado(id, clave, inicios_sesion);
 
-            XmlNode nodoRaiz = doc.DocumentElement;
+                XmlNode nodoRaiz = doc.DocumentElement;
 
-            nodoRaiz.InsertAfter(usuario, nodoRaiz.LastChild);
+                nodoRaiz.InsertAfter(usuario, nodoRaiz.LastChild);
 
-            doc.Save(rutaXml);
+                doc.Save(rutaXml);
 
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
-
+        /// <summary>
+        /// Verifica que el nombre no se repita con el nuevo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Retorna un booleano para saber si esta repetido o no</returns>
+        private bool VerificarNombre(string id)
+        {
+            doc.Load(rutaXml);
+            XmlNodeList listaUsuarios = doc.SelectNodes("Usuarios/usuario");
+            XmlNode unUsu;
+            for (int i = 0; i < listaUsuarios.Count; i++)
+            {
+                unUsu = listaUsuarios.Item(i);
+                if (unUsu.SelectSingleNode("id_usuario").InnerText.Equals(id)) return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Crea un usuario tipo XMLNode con la informacion recibida por parametro
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="clave"></param>
+        /// <param name="inicios_sesion"></param>
+        /// <returns>Retorna un XMLNode para ser agregado a un archivo xml</returns>
         private XmlNode _Crear_Empleado(string id, string clave, string inicios_sesion)
         {
-
             XmlNode usuario = doc.CreateElement("usuario");
-
-
             XmlElement xid = doc.CreateElement("id_usuario");
             xid.InnerText = id;
             usuario.AppendChild(xid);
 
-
             XmlElement xclave = doc.CreateElement("clave");
             xclave.InnerText = clave;
             usuario.AppendChild(xclave);
-
-
+            
             XmlElement xcantinicios = doc.CreateElement("inicios_sesion");
             xcantinicios.InnerText = inicios_sesion;
             usuario.AppendChild(xcantinicios);
             
             return usuario;
         }
-
-        public string _ReadXml()
+        /// <summary>
+        /// Este metodo verifica que el usuario y la contraseña sean iguales
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="clave"></param>
+        /// <returns>Y retorna el id del usuario si es correcto</returns>
+        public string VerficarUsuarioLogin(string id, string clave)
         {
-
             doc.Load(rutaXml);
-
             XmlNodeList listaUsuarios = doc.SelectNodes("Usuarios/usuario");
-
             XmlNode unUsu;
-
-            string usuario = "";
-
+            XmlNode unUsupdate;
             for (int i = 0; i < listaUsuarios.Count; i++)
             {
-
                 unUsu = listaUsuarios.Item(i);
-
-                string id = unUsu.SelectSingleNode("id_usuario").InnerText;
-                string clave = unUsu.SelectSingleNode("clave").InnerText;
-                string inicios_sesion = unUsu.SelectSingleNode("inicios_sesion").InnerText;
-                usuario += (id + "," + clave + "," + inicios_sesion + Environment.NewLine);
-            }
-
-            return usuario;
-        }
-
-        public void _DeleteNodo(string id_borrar, string nodo)
-        {
-            doc.Load(rutaXml);
-
-            XmlNode usuario = doc.DocumentElement;
-
-            XmlNodeList listaUsuarios = doc.SelectNodes(nodo);
-
-            foreach (XmlNode item in listaUsuarios)
-            {
-
-                if (item.SelectSingleNode("id_usuario").InnerText == id_borrar)
+                int incios = int.Parse(unUsu.SelectSingleNode("inicios_sesion").InnerText);
+                if (unUsu.SelectSingleNode("id_usuario").InnerText.Equals(id) && unUsu.SelectSingleNode("clave").InnerText.Equals(clave))
                 {
-
-                    XmlNode nodoOld = item;
-
-                    usuario.RemoveChild(nodoOld);
+                    unUsupdate = _Crear_Empleado(id, clave, (incios++).ToString());
+                    ModificarIniciosSesion(unUsupdate);
+                    return id;
                 }
             }
-
-            doc.Save(rutaXml);
+            return "";
         }
-
-        public void _UpdateXml(string id_update, string clave, string inicios_sesion)
+        /// <summary>
+        /// Le suma la cantidad de inicios de sesion al usuario por ingresar al juego
+        /// </summary>
+        /// <param name="unUsupdate"></param>
+        private void ModificarIniciosSesion(XmlNode unUsupdate)
         {
-
-            XmlElement usuarios = doc.DocumentElement;
-
-            XmlNodeList listaUsuarios = doc.SelectNodes("Usuarios/usuario");
-
-            XmlNode nuevo_usuario = _Crear_Empleado(id_update, clave, inicios_sesion);
-
-            foreach (XmlNode item in listaUsuarios)
+            try
             {
-
-                if (item.FirstChild.InnerText == id_update)
+                doc.Load(rutaXml);
+                XmlElement usuarios = doc.DocumentElement;
+                XmlNodeList listaUsuarios = doc.SelectNodes("Usuarios/usuario");
+                foreach (XmlNode item in listaUsuarios)
                 {
-                    XmlNode nodoOld = item;
-                    usuarios.ReplaceChild(nuevo_usuario, nodoOld);
-
+                    if (item.FirstChild.InnerText.Equals(unUsupdate.SelectSingleNode("id_usuario").InnerText))
+                    {
+                        XmlNode nodoOld = item;
+                        usuarios.ReplaceChild(unUsupdate, nodoOld);
+                    }
                 }
+                doc.Save(rutaXml);
             }
-
-            doc.Save(rutaXml);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }
+    

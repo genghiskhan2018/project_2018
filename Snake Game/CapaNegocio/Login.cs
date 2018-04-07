@@ -9,10 +9,18 @@ namespace CapaNegocio
     
     public class Login
     {
-        XML MyXML = new XML();
+        XML MyXML;
         public Login()
         {
-            MyXML.Cargar_XML();
+            MyXML = new XML();
+        }
+        public void AgregarUsuario(string id_usuario, string clave)
+        {
+            MyXML._Añadir(id_usuario, clave, "0");
+        }
+        public string Verificar_Usuario(string id_usuario, string clave)
+        {
+            return MyXML.VerficarUsuarioLogin(id_usuario, clave);
         }
     }
 }
