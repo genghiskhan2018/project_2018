@@ -14,9 +14,9 @@ namespace CapaNegocio
         {
             MyXML = new XML();
         }
-        public void AgregarUsuario(string id_usuario, string clave)
+        public bool AgregarUsuario(string id_usuario, string clave)
         {
-            MyXML._Añadir(id_usuario, clave, "0");
+            return MyXML._Añadir(id_usuario, clave, "0");
         }
         public string Verificar_Usuario(string id_usuario, string clave)
         {
