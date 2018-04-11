@@ -7,10 +7,10 @@ using CapaDatos;
 namespace CapaNegocio
 {
     
-    public class Login
+    public class Login_XML
     {
         XML MyXML;
-        public Login()
+        public Login_XML()
         {
             MyXML = new XML();
         }

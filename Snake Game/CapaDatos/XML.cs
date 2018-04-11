@@ -12,7 +12,7 @@ namespace CapaDatos
         XmlDocument doc;
         string rutaXml;
 
-        public void Cargar_XML()
+        public XML()
         {
 
             this.rutaXml = "Usuario.xml";

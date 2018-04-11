@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ventana_Juego
+namespace Login
 {
     static class Program
     {
@@ -16,7 +17,7 @@ namespace Ventana_Juego
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1("Prueba"));
+            Application.Run(new Login());
         }
     }
 }

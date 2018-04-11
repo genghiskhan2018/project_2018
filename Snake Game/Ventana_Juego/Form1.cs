@@ -15,15 +15,17 @@ namespace Ventana_Juego
         Graphics juego;
         Cola cabeza;
         Comida comida;
+        string id_user;
         int espacio;
         int xdir = 0, ydir = 0;
         int puntaje = 1,movimientos = 0;
         string tipomovimiento = "";
         string tipomovimientotemp = "";
         Boolean ejex = true, ejey = true;
-        Login lg = new Login();
-        public Form1()
+        Login_XML lg = new Login_XML();
+        public Form1(string id_user)
         {
+            this.id_user = id_user;
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
