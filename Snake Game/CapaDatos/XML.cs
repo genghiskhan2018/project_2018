@@ -105,10 +105,10 @@ namespace CapaDatos
             for (int i = 0; i < listaUsuarios.Count; i++)
             {
                 unUsu = listaUsuarios.Item(i);
-                int incios = int.Parse(unUsu.SelectSingleNode("inicios_sesion").InnerText);
+                int incios = int.Parse(unUsu.SelectSingleNode("inicios_sesion").InnerText.ToString());
                 if (unUsu.SelectSingleNode("id_usuario").InnerText.Equals(id) && unUsu.SelectSingleNode("clave").InnerText.Equals(clave))
                 {
-                    unUsupdate = _Crear_Empleado(id, clave, (incios++).ToString());
+                    unUsupdate = _Crear_Empleado(id, clave, (incios+=1).ToString());
                     ModificarIniciosSesion(unUsupdate);
                     return id;
                 }
