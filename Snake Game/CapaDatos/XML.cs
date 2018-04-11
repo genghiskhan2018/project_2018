@@ -33,7 +33,7 @@ namespace CapaDatos
 
             if (!VerificarNombre(id))
             {
-                XmlNode usuario = _Crear_Empleado(id, clave, inicios_sesion);
+                XmlNode usuario = CrearUsuario(id, clave, inicios_sesion);
 
                 XmlNode nodoRaiz = doc.DocumentElement;
 
@@ -73,7 +73,7 @@ namespace CapaDatos
         /// <param name="clave"></param>
         /// <param name="inicios_sesion"></param>
         /// <returns>Retorna un XMLNode para ser agregado a un archivo xml</returns>
-        private XmlNode _Crear_Empleado(string id, string clave, string inicios_sesion)
+        private XmlNode CrearUsuario(string id, string clave, string inicios_sesion)
         {
             XmlNode usuario = doc.CreateElement("usuario");
             XmlElement xid = doc.CreateElement("id_usuario");
@@ -108,7 +108,7 @@ namespace CapaDatos
                 int incios = int.Parse(unUsu.SelectSingleNode("inicios_sesion").InnerText.ToString());
                 if (unUsu.SelectSingleNode("id_usuario").InnerText.Equals(id) && unUsu.SelectSingleNode("clave").InnerText.Equals(clave))
                 {
-                    unUsupdate = _Crear_Empleado(id, clave, (incios+=1).ToString());
+                    unUsupdate = CrearUsuario(id, clave, (incios+=1).ToString());
                     ModificarIniciosSesion(unUsupdate);
                     return id;
                 }
