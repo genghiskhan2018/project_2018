@@ -53,10 +53,7 @@ namespace Login
             {
                 this.BackColor = Bunifu.Framework.UI.BunifuColorTransition.getColorScale(a, colores[currentcolor], colores[currentcolor + 1]);
 
-                if (a < 100)
-                {
-                    a++;
-                }
+                if (a < 100)a++;
                 else
                 {
                     a = 0;
