@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Ventana_Juego
 {
-    class Comida : objeto
+    class Obstaculos : objeto
     {
 
-        public Comida(int a, int b)
+        public Obstaculos(int a, int b)
         {
-            this.x = generar(a);//79
-            this.y = generar(b);//39
+            this.x = a;//79
+            this.y = b;//39
         }
         public void dibujar(Graphics g)
         {
-            g.FillRectangle(new SolidBrush(Color.Red), this.x, this.y, this.espacio, this.espacio);
+            g.FillRectangle(new SolidBrush(Color.Black), this.x, this.y, this.espacio, this.espacio);
         }
+
         public void colocar(int a, int b)
         {
             this.x = generar(a);//79
             this.y = generar(b);//39
         }
+
         public int generar(int n)
         {
             Random random = new Random();

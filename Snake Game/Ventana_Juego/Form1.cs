@@ -12,12 +12,31 @@ namespace Ventana_Juego
 {
     public partial class Form1 : Form
     {
+        int paso = 0;
+        int atravesar = 0;
+        bool obstaculos = true;
+        int modo = 3;
+        int s = 0;
+        int m = 0;
+        int lev = 1;
+        int velocidad = 100;
         Graphics juego;
         Cola cabeza;
         Comida comida;
-        string id_user;
+        Obstaculos obstaculo;
+        Obstaculos obstaculo1;
+        Obstaculos obstaculo2;
+        Obstaculos obstaculo3;
+        Obstaculos obstaculo4;
+        Obstaculos obstaculo5;
+        Obstaculos obstaculo6;
+        Obstaculos obstaculo7;
+        Obstaculos obstaculo8;
+        Obstaculos obstaculo9;
+        Obstaculos obstaculo10;
         int espacio;
         int xdir = 0, ydir = 0;
+        string id_user;
         int puntaje = 1,movimientos = 0;
         string tipomovimiento = "";
         string tipomovimientotemp = "";
@@ -29,14 +48,411 @@ namespace Ventana_Juego
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-            cabeza = new Cola(10, 10);
-            comida = new Comida();
             serialPort1.Open();
+            if (modo == 1)
+            {
+                pasarniv1_modo1();
+                bucle.Interval = velocidad;
+            }
+            if (modo == 2)
+            {
+                pasarniv1_modo2();
+                bucle.Interval = velocidad;
+            }
+            if (modo == 3 && obstaculos == true)
+            {
+                pasarniv1_modo3_con();
+                bucle.Interval = velocidad;
+            }
+            if (modo == 3 && obstaculos == false)
+            {
+                pasarniv1_modo3_sin();
+                bucle.Interval = velocidad;
+            }
 
+        }
+        public void pasarniv1_modo1()
+        {
+            reloj.Enabled = true;
+            Random random = new Random();
+            this.canvas.Size = new System.Drawing.Size(800, 400); // solo para pruebas
+            xdir = 0;
+            ydir = 0;
+            puntaje = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(79, 39);
+
+        }
+
+        public void pasarniv1_modo2()
+        {
+            reloj.Enabled = true;
+            Random random = new Random();
+            paso = 0;
+            this.canvas.Size = new System.Drawing.Size(800, 400);
+            xdir = 0;
+            ydir = 0;
+            puntaje = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(79, 39);
+
+            List<int> lista = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    int a = random.Next(0, 79) * 10;
+                    lista.Add(a);
+                }
+                else
+                {
+                    int b = random.Next(0, 39) * 10;
+                    lista.Add(b);
+                }
+            }
+
+            obstaculo = new Obstaculos(lista[0], lista[1]);
+            obstaculo1 = new Obstaculos(lista[2], lista[3]);
+            obstaculo2 = new Obstaculos(lista[4], lista[5]);
+            obstaculo3 = new Obstaculos(lista[6], lista[7]);
+            obstaculo4 = new Obstaculos(lista[8], lista[9]);
+
+
+            while (true)
+            {
+                if (comida.interseccion(obstaculo) || comida.interseccion(obstaculo1) || comida.interseccion(obstaculo2)
+                  || comida.interseccion(obstaculo3) || comida.interseccion(obstaculo4))
+                {
+                    comida = new Comida(79, 39);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+        }
+
+        public void pasarniv1_modo3_con()
+        {
+            atravesar = 0;
+            reloj.Enabled = true;
+            Random random = new Random();
+            this.canvas.Size = new System.Drawing.Size(800, 400); // solo para pruebas
+            xdir = 0;
+            ydir = 0;
+            puntaje = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(79, 39);//79, 39
+
+            List<int> lista = new List<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    int a = random.Next(0, 79) * 10;
+                    lista.Add(a);
+                }
+                else
+                {
+                    int b = random.Next(0, 39) * 10;
+                    lista.Add(b);
+                }
+            }
+
+            obstaculo = new Obstaculos(lista[0], lista[1]);
+            obstaculo1 = new Obstaculos(lista[2], lista[3]);
+            obstaculo2 = new Obstaculos(lista[4], lista[5]);
+
+
+            while (true)
+            {
+                if (comida.interseccion(obstaculo) || comida.interseccion(obstaculo1) || comida.interseccion(obstaculo2))
+                {
+                    comida = new Comida(79, 39);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+        }
+
+        public void pasarniv1_modo3_sin()
+        {
+            reloj.Enabled = true;
+            Random random = new Random();
+            this.canvas.Size = new System.Drawing.Size(800, 400); // solo para pruebas
+            xdir = 0;
+            ydir = 0;
+            puntaje = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(79, 39);
+        }
+
+        public void pasarniv2_modo1()
+        {
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(59, 29);
+        }
+
+        public void pasarniv2_modo2()
+        {
+            paso = 0;
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(59, 29);
+
+            Random random = new Random();
+            List<int> lista = new List<int>();
+            for (int i = 0; i < 18; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    int a = random.Next(0, 59) * 10;
+                    lista.Add(a);
+                }
+                else
+                {
+                    int b = random.Next(0, 29) * 10;
+                    lista.Add(b);
+                }
+            }
+
+            obstaculo = new Obstaculos(lista[0], lista[1]);
+            obstaculo1 = new Obstaculos(lista[2], lista[3]);
+            obstaculo2 = new Obstaculos(lista[4], lista[5]);
+            obstaculo3 = new Obstaculos(lista[6], lista[7]);
+            obstaculo4 = new Obstaculos(lista[8], lista[9]);
+            obstaculo5 = new Obstaculos(lista[10], lista[11]);
+            obstaculo6 = new Obstaculos(lista[12], lista[13]);
+            obstaculo7 = new Obstaculos(lista[14], lista[15]);
+            obstaculo8 = new Obstaculos(lista[16], lista[17]);
+
+            while (true)
+            {
+                if (comida.interseccion(obstaculo) || comida.interseccion(obstaculo1) || comida.interseccion(obstaculo2)
+                    || comida.interseccion(obstaculo3) || comida.interseccion(obstaculo4) || comida.interseccion(obstaculo5)
+                     || comida.interseccion(obstaculo6) || comida.interseccion(obstaculo7) || comida.interseccion(obstaculo8))
+                {
+                    comida = new Comida(49, 19);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public void pasarniv2_modo3_con()
+        {
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(59, 29);
+
+            Random random = new Random();
+            List<int> lista = new List<int>();
+            for (int i = 0; i < 12; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    int a = random.Next(0, 59) * 10;
+                    lista.Add(a);
+                }
+                else
+                {
+                    int b = random.Next(0, 29) * 10;
+                    lista.Add(b);
+                }
+            }
+
+            obstaculo = new Obstaculos(lista[0], lista[1]);
+            obstaculo1 = new Obstaculos(lista[2], lista[3]);
+            obstaculo2 = new Obstaculos(lista[4], lista[5]);
+            obstaculo3 = new Obstaculos(lista[6], lista[7]);
+            obstaculo4 = new Obstaculos(lista[8], lista[9]);
+            obstaculo5 = new Obstaculos(lista[10], lista[11]);
+
+            while (true)
+            {
+                if (comida.interseccion(obstaculo) || comida.interseccion(obstaculo1) || comida.interseccion(obstaculo2)
+                    || comida.interseccion(obstaculo3) || comida.interseccion(obstaculo4) || comida.interseccion(obstaculo5))
+                {
+                    comida = new Comida(49, 19);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public void pasarniv2_modo3_sin()
+        {
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(59, 29);
+        }
+
+        public void pasarniv3_modo1()
+        {
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(49, 19);
+        }
+
+        public void pasarniv3_modo2()
+        {
+            paso = 0;
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(49, 19);
+            Random random = new Random();
+            List<int> lista = new List<int>();
+            for (int i = 0; i < 22; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    int a = random.Next(0, 49) * 10;
+                    lista.Add(a);
+                }
+                else
+                {
+                    int b = random.Next(0, 19) * 10;
+                    lista.Add(b);
+                }
+            }
+
+            obstaculo = new Obstaculos(lista[0], lista[1]);
+            obstaculo1 = new Obstaculos(lista[2], lista[3]);
+            obstaculo2 = new Obstaculos(lista[4], lista[5]);
+            obstaculo3 = new Obstaculos(lista[6], lista[7]);
+            obstaculo4 = new Obstaculos(lista[8], lista[9]);
+            obstaculo5 = new Obstaculos(lista[10], lista[11]);
+            obstaculo6 = new Obstaculos(lista[12], lista[13]);
+            obstaculo7 = new Obstaculos(lista[14], lista[15]);
+            obstaculo8 = new Obstaculos(lista[16], lista[17]);
+            obstaculo9 = new Obstaculos(lista[18], lista[19]);
+            obstaculo10 = new Obstaculos(lista[20], lista[21]);
+
+            while (true)
+            {
+                if (comida.interseccion(obstaculo) || comida.interseccion(obstaculo1) || comida.interseccion(obstaculo2) || comida.interseccion(obstaculo3)
+                    || comida.interseccion(obstaculo4) || comida.interseccion(obstaculo5) || comida.interseccion(obstaculo6)
+                    || comida.interseccion(obstaculo7) || comida.interseccion(obstaculo8) || comida.interseccion(obstaculo9)
+                    || comida.interseccion(obstaculo10))
+                {
+                    comida = new Comida(49, 19);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public void pasarniv3_modo3_con()
+        {
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(49, 19);
+            Random random = new Random();
+            List<int> lista = new List<int>();
+            for (int i = 0; i < 20; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    int a = random.Next(0, 49) * 10;
+                    lista.Add(a);
+                }
+                else
+                {
+                    int b = random.Next(0, 19) * 10;
+                    lista.Add(b);
+                }
+            }
+
+            obstaculo = new Obstaculos(lista[0], lista[1]);
+            obstaculo1 = new Obstaculos(lista[2], lista[3]);
+            obstaculo2 = new Obstaculos(lista[4], lista[5]);
+            obstaculo3 = new Obstaculos(lista[6], lista[7]);
+            obstaculo4 = new Obstaculos(lista[8], lista[9]);
+            obstaculo5 = new Obstaculos(lista[10], lista[11]);
+            obstaculo6 = new Obstaculos(lista[12], lista[13]);
+            obstaculo7 = new Obstaculos(lista[14], lista[15]);
+            obstaculo8 = new Obstaculos(lista[16], lista[17]);
+            obstaculo9 = new Obstaculos(lista[18], lista[19]);
+
+            while (true)
+            {
+                if (comida.interseccion(obstaculo) || comida.interseccion(obstaculo1) || comida.interseccion(obstaculo2) || comida.interseccion(obstaculo3)
+                    || comida.interseccion(obstaculo4) || comida.interseccion(obstaculo5) || comida.interseccion(obstaculo6)
+                    || comida.interseccion(obstaculo7) || comida.interseccion(obstaculo8) || comida.interseccion(obstaculo9))
+                {
+                    comida = new Comida(49, 19);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        public void pasarniv3_modo3_sin()
+        {
+            xdir = 0;
+            ydir = 0;
+            puntos.Text = puntaje.ToString();
+            ejex = true;
+            ejey = true;
+            cabeza = new Cola(10, 10);
+            comida = new Comida(49, 19);
         }
         public void findeJuego()
         {
-            xdir = 0;
+          /*  xdir = 0;
             ydir = 0;
             puntaje = 0;
             movimientos = 0;
@@ -47,7 +463,77 @@ namespace Ventana_Juego
             cabeza = new Cola(10, 10);
             comida = new Comida();
             MessageBox.Show("Perdiste");
-            //Guardar Info Reportes
+            //Guardar Info Reportes*/
+
+            if (modo == 1)
+            {
+                xdir = 0;
+                ydir = 0;
+                movimientos = 0;
+                puntos.Text = "0";
+                lblMovimientos.Text = "0";
+                ejex = true;
+                ejey = true;
+                velocidad = 100;
+                puntaje = 0;
+                puntos.Text = "0";
+                lev = 1;
+                reloj.Stop();
+                s = 0;
+                m = 0;
+                pasarniv1_modo1(); // prueba 
+                MessageBox.Show("Perdiste");
+            }
+            if (modo == 2)
+            {
+                xdir = 0;
+                ydir = 0;
+                movimientos = 0;
+                puntos.Text = "0";
+                lblMovimientos.Text = "0";
+                ejex = true;
+                ejey = true;
+                velocidad = 100;
+                puntaje = 0;
+                puntos.Text = "0";
+                lev = 1;
+                reloj.Stop();
+                s = 0;
+                m = 0;
+                pasarniv1_modo2(); // prueba 
+                MessageBox.Show("Perdiste");
+            }
+            if (modo == 3 && obstaculos == true)
+            {
+                xdir = 0;
+                ydir = 0;
+                movimientos = 0;
+                puntos.Text = "0";
+                lblMovimientos.Text = "0";
+                ejex = true;
+                ejey = true;
+                velocidad = 100;
+                puntaje = 0;
+                puntos.Text = "0";
+                lev = 1;
+                reloj.Stop();
+                s = 0;
+                m = 0;
+                pasarniv1_modo3_con(); // prueba 
+                MessageBox.Show("Perdiste");
+            }
+            if (modo == 3 && obstaculos == false)
+            {
+                velocidad = 100;
+                puntaje = 0;
+                puntos.Text = "0";
+                lev = 1;
+                reloj.Stop();
+                s = 0;
+                m = 0;
+                pasarniv1_modo3_sin(); // prueba 
+                MessageBox.Show("Perdiste");
+            }
         }
         public void choqueCuerpo()
         {
@@ -77,17 +563,800 @@ namespace Ventana_Juego
 
         public void choquePared()
         {
-            if (cabeza.getX() < 0 || cabeza.getX() > 790 || cabeza.getY() < 0 || cabeza.getY() > 390)
+            if (modo == 1)
             {
-                findeJuego();
+
+
+               // label2.Text = lev.ToString();
+                label3.Text = cabeza.getX().ToString();
+                label4.Text = cabeza.getY().ToString();
+                label8.Text = velocidad.ToString();
+
+                if (lev == 1)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 790 || cabeza.getY() < 0 || cabeza.getY() > 390))
+                    {
+                        findeJuego();
+                    }
+                }
+
+
+                if (lev == 2)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 590 || cabeza.getY() < 0 || cabeza.getY() > 290))
+                    {
+                        findeJuego();
+                    }
+                }
+
+                if (lev == 3)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 490 || cabeza.getY() < 0 || cabeza.getY() > 190))
+                    {
+                        findeJuego();
+                    }
+                }
+            }
+
+            if (modo == 2)
+            {
+
+
+               // label2.Text = lev.ToString();
+                label3.Text = cabeza.getX().ToString();
+                label4.Text = cabeza.getY().ToString();
+                label8.Text = velocidad.ToString();
+
+                if (lev == 1)
+                {
+                    if ((cabeza.getX() < 0))
+                    {
+                        paso = paso + 1;
+                        xdir = 800;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+                        xdir = -10;
+                    }
+                    if ((cabeza.getX() > 790))
+                    {
+                        paso = paso + 1;
+                        xdir = 800;
+                        cabeza.setxy(cabeza.getX() - xdir, cabeza.getY() + ydir);
+                        xdir = 10;
+                    }
+                    if ((cabeza.getY() < 0))
+                    {
+                        paso = paso + 1;
+                        ydir = 400;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+                        ydir = -10;
+                    }
+                    if ((cabeza.getY() > 390))
+                    {
+                        paso = paso + 1;
+                        ydir = 400;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() - ydir);
+                        ydir = 10;
+                    }
+                    if (paso >= 6)
+                    {
+                        paso = 5;
+                    }
+                    if (paso == 1)
+                    {
+                        if (cabeza.interseccion(obstaculo))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 2)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 3)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 4)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 5)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)))
+                        {
+                            findeJuego();
+                        }
+                    }
+
+                }
+
+
+                if (lev == 2)
+                {
+                    if ((cabeza.getX() < 0))
+                    {
+                        paso = paso + 1;
+                        xdir = 600;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+                        xdir = -10;
+                    }
+                    if ((cabeza.getX() > 590))
+                    {
+                        paso = paso + 1;
+                        xdir = 600;
+                        cabeza.setxy(cabeza.getX() - xdir, cabeza.getY() + ydir);
+                        xdir = 10;
+                    }
+                    if ((cabeza.getY() < 0))
+                    {
+                        paso = paso + 1;
+                        ydir = 300;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+                        ydir = -10;
+                    }
+                    if ((cabeza.getY() > 290))
+                    {
+                        paso = paso + 1;
+                        ydir = 300;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() - ydir);
+                        ydir = 10;
+                    }
+                    if (paso >= 10)
+                    {
+                        paso = 9;
+                    }
+                    if (paso == 1)
+                    {
+                        if (cabeza.interseccion(obstaculo))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 2)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 3)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 4)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 5)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 6)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 7)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 8)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 9)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)) || (cabeza.interseccion(obstaculo8)))
+                        {
+                            findeJuego();
+                        }
+                    }
+
+
+
+                }
+
+                if (lev == 3)
+                {
+                    if ((cabeza.getX() < 0))
+                    {
+                        paso = paso + 1;
+                        xdir = 500;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+                        xdir = -10;
+                    }
+                    if ((cabeza.getX() > 490))
+                    {
+                        paso = paso + 1;
+                        xdir = 500;
+                        cabeza.setxy(cabeza.getX() - xdir, cabeza.getY() + ydir);
+                        xdir = 10;
+                    }
+                    if ((cabeza.getY() < 0))
+                    {
+                        paso = paso + 1;
+                        ydir = 200;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+                        ydir = -10;
+                    }
+                    if ((cabeza.getY() > 190))
+                    {
+                        paso = paso + 1;
+                        ydir = 200;
+                        cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() - ydir);
+                        ydir = 10;
+                    }
+                    if (paso >= 12)
+                    {
+                        paso = 11;
+                    }
+                    if (paso == 1)
+                    {
+                        if (cabeza.interseccion(obstaculo))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 2)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 3)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 4)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 5)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 6)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 7)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 8)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 9)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)) || (cabeza.interseccion(obstaculo8)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 10)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)) || (cabeza.interseccion(obstaculo8))
+                            || (cabeza.interseccion(obstaculo9)))
+                        {
+                            findeJuego();
+                        }
+                    }
+                    if (paso == 11)
+                    {
+                        if (cabeza.interseccion(obstaculo) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                            || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                            || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)) || (cabeza.interseccion(obstaculo8))
+                            || (cabeza.interseccion(obstaculo9)) || (cabeza.interseccion(obstaculo10)))
+                        {
+                            findeJuego();
+                        }
+                    }
+
+
+
+                }
+            }
+
+            if (modo == 3 && obstaculos == true)
+            {
+
+
+             //   label2.Text = lev.ToString();
+                label3.Text = cabeza.getX().ToString();
+                label4.Text = cabeza.getY().ToString();
+                label8.Text = velocidad.ToString();
+                comodin.Text = atravesar.ToString();
+
+                if (lev == 1)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 790 || cabeza.getY() < 0 || cabeza.getY() > 390)
+                        || ((cabeza.interseccion(obstaculo)) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))))
+                    {
+                        findeJuego();
+                    }
+                }
+
+
+                if (lev == 2)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 590 || cabeza.getY() < 0 || cabeza.getY() > 290)
+                        || ((cabeza.interseccion(obstaculo)) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                        || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5)))
+                        && atravesar == 0)
+                    {
+                        findeJuego();
+                    }
+
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 590 || cabeza.getY() < 0 || cabeza.getY() > 290)
+                        || ((cabeza.interseccion(obstaculo)) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                        || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5)))
+                        && atravesar > 0)
+                    {
+                        atravesar = atravesar - 1;
+                    }
+
+                }
+
+                if (lev == 3)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 490 || cabeza.getY() < 0 || cabeza.getY() > 190)
+                        || ((cabeza.interseccion(obstaculo)) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                        || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                        || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)) || (cabeza.interseccion(obstaculo8))
+                        || (cabeza.interseccion(obstaculo9))) && atravesar <= 0)
+                    {
+                        findeJuego();
+                    }
+
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 490 || cabeza.getY() < 0 || cabeza.getY() > 190)
+                        || ((cabeza.interseccion(obstaculo)) || (cabeza.interseccion(obstaculo1)) || (cabeza.interseccion(obstaculo2))
+                        || (cabeza.interseccion(obstaculo3)) || (cabeza.interseccion(obstaculo4)) || (cabeza.interseccion(obstaculo5))
+                        || (cabeza.interseccion(obstaculo6)) || (cabeza.interseccion(obstaculo7)) || (cabeza.interseccion(obstaculo8))
+                        || (cabeza.interseccion(obstaculo9))) && atravesar > 0)
+                    {
+                        atravesar = atravesar - 1;
+                    }
+                }
+
+            }
+
+            if (modo == 3 && obstaculos == false)
+            {
+
+
+             //   label2.Text = lev.ToString();
+                label3.Text = cabeza.getX().ToString();
+                label4.Text = cabeza.getY().ToString();
+                label8.Text = velocidad.ToString();
+
+                if (lev == 1)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 790 || cabeza.getY() < 0 || cabeza.getY() > 390))
+                    {
+                        findeJuego();
+                    }
+                }
+
+
+                if (lev == 2)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 590 || cabeza.getY() < 0 || cabeza.getY() > 290))
+                    {
+                        findeJuego();
+                    }
+                }
+
+                if (lev == 3)
+                {
+                    if ((cabeza.getX() < 0 || cabeza.getX() > 490 || cabeza.getY() < 0 || cabeza.getY() > 190))
+                    {
+                        findeJuego();
+                    }
+                }
+
             }
         }
 
         public void dibujar()
         {
-            juego.Clear(Color.Yellow);
-            cabeza.dibujar(juego);
-            comida.dibujar(juego);
+            if (modo == 1)
+            {
+                if (lev == 1)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 2)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 3)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+            }
+
+            if (modo == 2)
+            {
+                if (lev == 1)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    if (paso == 1)
+                    {
+                        obstaculo.dibujar(juego);
+                    }
+                    if (paso == 2)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                    }
+                    if (paso == 3)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                    }
+                    if (paso == 4)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                    }
+                    if (paso == 5)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                    }
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 2)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    if (paso == 1)
+                    {
+                        obstaculo.dibujar(juego);
+                    }
+                    if (paso == 2)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                    }
+                    if (paso == 3)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                    }
+                    if (paso == 4)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                    }
+                    if (paso == 5)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                    }
+                    if (paso == 6)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                    }
+                    if (paso == 7)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                    }
+                    if (paso == 8)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                        obstaculo7.dibujar(juego);
+                    }
+                    if (paso == 9)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                        obstaculo7.dibujar(juego);
+                        obstaculo8.dibujar(juego);
+                    }
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 3)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    if (paso == 1)
+                    {
+                        obstaculo.dibujar(juego);
+                    }
+                    if (paso == 2)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                    }
+                    if (paso == 3)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                    }
+                    if (paso == 4)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                    }
+                    if (paso == 5)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                    }
+                    if (paso == 6)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                    }
+                    if (paso == 7)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                    }
+                    if (paso == 8)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                        obstaculo7.dibujar(juego);
+                    }
+                    if (paso == 9)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                        obstaculo7.dibujar(juego);
+                        obstaculo8.dibujar(juego);
+                    }
+                    if (paso == 10)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                        obstaculo7.dibujar(juego);
+                        obstaculo8.dibujar(juego);
+                        obstaculo9.dibujar(juego);
+                    }
+                    if (paso == 11)
+                    {
+                        obstaculo.dibujar(juego);
+                        obstaculo1.dibujar(juego);
+                        obstaculo2.dibujar(juego);
+                        obstaculo3.dibujar(juego);
+                        obstaculo4.dibujar(juego);
+                        obstaculo5.dibujar(juego);
+                        obstaculo6.dibujar(juego);
+                        obstaculo7.dibujar(juego);
+                        obstaculo8.dibujar(juego);
+                        obstaculo9.dibujar(juego);
+                        obstaculo10.dibujar(juego);
+                    }
+                    bucle.Interval = velocidad;
+                }
+            }
+
+            if (modo == 3 && obstaculos == true)
+            {
+                if (lev == 1)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    obstaculo.dibujar(juego);
+                    obstaculo1.dibujar(juego);
+                    obstaculo2.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 2)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    obstaculo.dibujar(juego);
+                    obstaculo1.dibujar(juego);
+                    obstaculo2.dibujar(juego);
+                    obstaculo3.dibujar(juego);
+                    obstaculo4.dibujar(juego);
+                    obstaculo5.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 3)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    obstaculo.dibujar(juego);
+                    obstaculo1.dibujar(juego);
+                    obstaculo2.dibujar(juego);
+                    obstaculo3.dibujar(juego);
+                    obstaculo4.dibujar(juego);
+                    obstaculo5.dibujar(juego);
+                    obstaculo6.dibujar(juego);
+                    obstaculo7.dibujar(juego);
+                    obstaculo8.dibujar(juego);
+                    obstaculo9.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+            }
+
+            if (modo == 3 && obstaculos == false)
+            {
+                if (lev == 1)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 2)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+
+                if (lev == 3)
+                {
+                    juego.Clear(Color.ForestGreen);
+                    cabeza.dibujar(juego);
+                    comida.dibujar(juego);
+                    bucle.Interval = velocidad;
+                }
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -170,24 +1439,167 @@ namespace Ventana_Juego
             
         }
 
-        public void Movimiento()
+        private void reloj_Tick(object sender, EventArgs e)
         {
-            cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+            s++;
+            if (s > 0 && s <= 59)
+            {
+                rel.Text = m.ToString() + ":" + s.ToString();
+
+            }
+            else
+            {
+                s = 0;
+                m = m + 1;
+                rel.Text = m.ToString() + ":" + s.ToString();
+            }
         }
 
         private void bucle_Tick(object sender, EventArgs e)
         {
-
             dibujar();
-            Movimiento();
+            movimiento();
             choqueCuerpo();
             choquePared();
-            if (cabeza.interseccion(comida))
+            if (modo == 1)
             {
-                comida.colocar();
-                cabeza.meter();
-                puntos.Text = (puntaje++).ToString();
+                if (cabeza.interseccion(comida))
+                {
+                    comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
+
+                    cabeza.meter();
+
+                    puntaje = puntaje + 1;
+                    puntos.Text = puntaje.ToString();
+                    velocidad_despl();
+
+
+                    if (puntaje == 2 && lev == 1)
+                    {
+
+                        lev = lev + 1;
+                        this.canvas.Size = new System.Drawing.Size(600, 300);
+                        pasarniv2_modo1();
+
+                    }
+
+                    if (puntaje == 5 && lev == 2)
+                    {
+
+                        lev = lev + 1;
+                        this.canvas.Size = new System.Drawing.Size(500, 200);
+                        pasarniv3_modo1();
+
+                    }
+                }
             }
+
+            if (modo == 2)
+            {
+                if (cabeza.interseccion(comida))
+                {
+                    comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
+
+                    cabeza.meter();
+
+                    puntaje = puntaje + 1;
+                    puntos.Text = puntaje.ToString();
+                    velocidad_despl();
+
+
+                    if (puntaje == 2 && lev == 1)
+                    {
+
+                        lev = lev + 1;
+                        //cabeza = new Cola(10, 10);
+                        this.canvas.Size = new System.Drawing.Size(600, 300);
+                        pasarniv2_modo2();
+
+                    }
+
+                    if (puntaje == 5 && lev == 2)
+                    {
+
+                        lev = lev + 1;
+                        //cabeza = new Cola(10, 10);
+                        this.canvas.Size = new System.Drawing.Size(500, 200);
+                        pasarniv3_modo2();
+
+                    }
+                }
+            }
+
+            if (modo == 3 && obstaculos == true)
+            {
+                if (cabeza.interseccion(comida))
+                {
+                    comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
+
+                    cabeza.meter();
+
+                    puntaje = puntaje + 1;
+                    puntos.Text = puntaje.ToString();
+                    velocidad_despl();
+
+
+                    if (puntaje == 2 && lev == 1)
+                    {
+                        atravesar = atravesar + 1;
+                        lev = lev + 1;
+                        this.canvas.Size = new System.Drawing.Size(600, 300);
+                        pasarniv2_modo3_con();
+
+                    }
+
+                    if (puntaje == 5 && lev == 2)
+                    {
+
+                        lev = lev + 1;
+                        this.canvas.Size = new System.Drawing.Size(500, 200);
+                        pasarniv3_modo3_con();
+
+                    }
+
+                    if (puntaje == 4)
+                    {
+                        atravesar = atravesar + 1;
+                    }
+                }
+            }
+
+            if (modo == 3 && obstaculos == false)
+            {
+                if (cabeza.interseccion(comida))
+                {
+                    comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
+
+                    cabeza.meter();
+
+                    puntaje = puntaje + 1;
+                    puntos.Text = puntaje.ToString();
+                    velocidad_despl();
+
+
+                    if (puntaje == 2 && lev == 1)
+                    {
+
+                        lev = lev + 1;
+                        this.canvas.Size = new System.Drawing.Size(600, 300);
+                        pasarniv2_modo3_sin();
+
+                    }
+
+                    if (puntaje == 5 && lev == 2)
+                    {
+
+                        lev = lev + 1;
+                        this.canvas.Size = new System.Drawing.Size(500, 200);
+                        pasarniv3_modo3_sin();
+
+                    }
+                }
+            }
+
             verificarMovimientos();
         }
 
@@ -199,5 +1611,19 @@ namespace Ventana_Juego
                 tipomovimientotemp = tipomovimiento;
             }
         }
+        public void velocidad_despl()
+        {
+            velocidad = velocidad - 5;
+            if (velocidad <= 0)
+            {
+                velocidad = 1;
+            }
+            bucle.Interval = velocidad;
+        }
+        public void movimiento()
+        {
+            cabeza.setxy(cabeza.getX() + xdir, cabeza.getY() + ydir);
+        }
+
     }
 }

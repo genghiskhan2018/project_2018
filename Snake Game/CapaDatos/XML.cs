@@ -18,7 +18,7 @@ namespace CapaDatos
             this.rutaXml = "Usuario.xml";
             doc = new XmlDocument();
             doc.Load(rutaXml);
-            
+            Console.WriteLine("qwe");
         }
         /// <summary>
         /// Crea un nuevo usuario
