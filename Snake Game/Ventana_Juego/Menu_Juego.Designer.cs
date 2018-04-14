@@ -33,6 +33,12 @@
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -40,12 +46,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -94,6 +94,48 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // recordsToolStripMenuItem
+            // 
+            this.recordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporte1ToolStripMenuItem,
+            this.reporte2ToolStripMenuItem,
+            this.reporte3ToolStripMenuItem,
+            this.reporte4ToolStripMenuItem,
+            this.reporte5ToolStripMenuItem});
+            this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
+            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.recordsToolStripMenuItem.Text = "Records";
+            // 
+            // reporte1ToolStripMenuItem
+            // 
+            this.reporte1ToolStripMenuItem.Name = "reporte1ToolStripMenuItem";
+            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.reporte1ToolStripMenuItem.Text = "Reporte 1";
+            // 
+            // reporte2ToolStripMenuItem
+            // 
+            this.reporte2ToolStripMenuItem.Name = "reporte2ToolStripMenuItem";
+            this.reporte2ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.reporte2ToolStripMenuItem.Text = "Reporte 2";
+            // 
+            // reporte3ToolStripMenuItem
+            // 
+            this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
+            this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.reporte3ToolStripMenuItem.Text = "Reporte 3";
+            // 
+            // reporte4ToolStripMenuItem
+            // 
+            this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
+            this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.reporte4ToolStripMenuItem.Text = "Reporte 4";
+            // 
+            // reporte5ToolStripMenuItem
+            // 
+            this.reporte5ToolStripMenuItem.Name = "reporte5ToolStripMenuItem";
+            this.reporte5ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.reporte5ToolStripMenuItem.Text = "Reporte 5";
             // 
             // radioButton1
             // 
@@ -174,48 +216,6 @@
             this.radioButton4.Text = "Obstaculos";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // recordsToolStripMenuItem
-            // 
-            this.recordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporte1ToolStripMenuItem,
-            this.reporte2ToolStripMenuItem,
-            this.reporte3ToolStripMenuItem,
-            this.reporte4ToolStripMenuItem,
-            this.reporte5ToolStripMenuItem});
-            this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
-            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.recordsToolStripMenuItem.Text = "Records";
-            // 
-            // reporte1ToolStripMenuItem
-            // 
-            this.reporte1ToolStripMenuItem.Name = "reporte1ToolStripMenuItem";
-            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporte1ToolStripMenuItem.Text = "Reporte 1";
-            // 
-            // reporte2ToolStripMenuItem
-            // 
-            this.reporte2ToolStripMenuItem.Name = "reporte2ToolStripMenuItem";
-            this.reporte2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporte2ToolStripMenuItem.Text = "Reporte 2";
-            // 
-            // reporte3ToolStripMenuItem
-            // 
-            this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
-            this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporte3ToolStripMenuItem.Text = "Reporte 3";
-            // 
-            // reporte4ToolStripMenuItem
-            // 
-            this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
-            this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporte4ToolStripMenuItem.Text = "Reporte 4";
-            // 
-            // reporte5ToolStripMenuItem
-            // 
-            this.reporte5ToolStripMenuItem.Name = "reporte5ToolStripMenuItem";
-            this.reporte5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reporte5ToolStripMenuItem.Text = "Reporte 5";
-            // 
             // Menu_Juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +228,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu_Juego";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu_Juego";
+            this.Text = "Menu Juego";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

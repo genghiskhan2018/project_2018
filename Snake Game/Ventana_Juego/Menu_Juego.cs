@@ -27,7 +27,8 @@ namespace Ventana_Juego
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            //Hacer que abra login de nuevo
+            //this.Dispose();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
