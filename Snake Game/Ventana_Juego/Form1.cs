@@ -42,13 +42,15 @@ namespace Ventana_Juego
         string tipomovimientotemp = "";
         Boolean ejex = true, ejey = true;
         Login_XML lg = new Login_XML();
-        public Form1(string id_user)
+        public Form1(string id_user, bool obstaculos, int modo)
         {
             this.id_user = id_user;
+            this.obstaculos = obstaculos;
+            this.modo = modo;
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-            serialPort1.Open();
+            //serialPort1.Open();
             if (modo == 1)
             {
                 pasarniv1_modo1();
@@ -1601,6 +1603,11 @@ namespace Ventana_Juego
             }
 
             verificarMovimientos();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
 
         private void verificarMovimientos()
