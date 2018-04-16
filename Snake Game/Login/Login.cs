@@ -115,8 +115,10 @@ namespace Login
                 string id_user = lg_xml.Verificar_Usuario(username.Text, password.Text);
                 if (!id_user.Equals(String.Empty))
                 {
+                    stopSimpleSound();
+                    this.Dispose();
                     Menu_Juego mj = new Menu_Juego(id_user);
-                    this.Hide();
+                   // this.Hide();
                     mj.Show();
                 }
                 else

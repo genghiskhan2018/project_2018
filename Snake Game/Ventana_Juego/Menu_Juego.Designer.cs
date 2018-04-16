@@ -229,6 +229,7 @@
             this.Name = "Menu_Juego";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Juego";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_Juego_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

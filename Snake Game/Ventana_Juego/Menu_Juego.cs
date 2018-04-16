@@ -62,5 +62,10 @@ namespace Ventana_Juego
                 }
             }
         }
+
+        private void Menu_Juego_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
