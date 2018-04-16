@@ -38,12 +38,12 @@ namespace Ventana_Juego
 
         private void btnJugar_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            if (radioButton2.Checked)
             {
                 Form1 ventana_juego = new Form1(usuario,false,1);
                 ventana_juego.ShowDialog();
             }
-            else if(radioButton2.Checked)
+            else if(radioButton1.Checked)
             {
                 Form1 ventana_juego = new Form1(usuario, false, 2);
                 ventana_juego.ShowDialog();
