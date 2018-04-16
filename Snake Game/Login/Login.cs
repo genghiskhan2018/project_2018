@@ -115,9 +115,9 @@ namespace Login
                 string id_user = lg_xml.Verificar_Usuario(username.Text, password.Text);
                 if (!id_user.Equals(String.Empty))
                 {
-                    Form1 Ventana_Juego = new Form1(id_user);
-                    Ventana_Juego.Show();
-                    //Hide
+                    Menu_Juego mj = new Menu_Juego(id_user);
+                    this.Hide();
+                    mj.Show();
                 }
                 else
                 {
