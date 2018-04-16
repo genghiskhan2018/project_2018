@@ -125,7 +125,8 @@ namespace Login
                 {
                     MessageBox.Show("La cuenta o clave son incorrectas","Aviso!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     username.Text = String.Empty;
-                    password.Text = String.Empty;
+                    contador = 1;
+                    password.Text = "password";
                 }
             }
         }
