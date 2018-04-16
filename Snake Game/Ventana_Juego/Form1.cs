@@ -1626,4 +1626,4 @@ namespace Ventana_Juego
         }
 
     }
-}
+} 
