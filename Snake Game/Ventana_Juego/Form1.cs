@@ -54,7 +54,7 @@ namespace Ventana_Juego
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-            //serialPort1.Open();
+          //  serialPort1.Open();
             if (modo == 1)
             {
                 pasarniv1_modo1();
@@ -1555,6 +1555,13 @@ namespace Ventana_Juego
                     if (puntaje == 4)
                     {
                         atravesar = atravesar + 1;
+                    }
+
+                    if (puntaje == 10 && lev == 3)
+                    {
+                        this.Dispose();
+                        Pasado pas = new Pasado();
+                        pas.ShowDialog();
                     }
                 }
             }

@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.puntos = new System.Windows.Forms.Label();
-            this.bucle = new System.Windows.Forms.Timer();
-            this.serialPort1 = new System.IO.Ports.SerialPort();
+            this.bucle = new System.Windows.Forms.Timer(this.components);
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.lblMovimientos = new System.Windows.Forms.Label();
-            this.reloj = new System.Windows.Forms.Timer();
+            this.reloj = new System.Windows.Forms.Timer(this.components);
             this.rel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cajacomodin = new System.Windows.Forms.GroupBox();
             this.comodin = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gift = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.canvas = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.cajacomodin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gift)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gift)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,6 +159,18 @@
             this.comodin.Text = "0";
             this.comodin.Visible = false;
             // 
+            // gift
+            // 
+            this.gift.Image = global::Ventana_Juego.Properties.Resources.Gift_50px;
+            this.gift.Location = new System.Drawing.Point(3, 16);
+            this.gift.Margin = new System.Windows.Forms.Padding(0);
+            this.gift.Name = "gift";
+            this.gift.Size = new System.Drawing.Size(249, 86);
+            this.gift.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gift.TabIndex = 27;
+            this.gift.TabStop = false;
+            this.gift.Visible = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.rel);
@@ -171,26 +183,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cronómetro";
             // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 15;
-            this.bunifuElipse1.TargetControl = this;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImage = global::Ventana_Juego.Properties.Resources.Delete_64px;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(753, 3);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 34);
-            this.button1.TabIndex = 32;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Ventana_Juego.Properties.Resources.Stopwatch2_48px;
@@ -202,17 +194,10 @@
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             // 
-            // gift
+            // bunifuElipse1
             // 
-            this.gift.Image = global::Ventana_Juego.Properties.Resources.Gift_50px;
-            this.gift.Location = new System.Drawing.Point(3, 16);
-            this.gift.Margin = new System.Windows.Forms.Padding(0);
-            this.gift.Name = "gift";
-            this.gift.Size = new System.Drawing.Size(249, 86);
-            this.gift.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gift.TabIndex = 27;
-            this.gift.TabStop = false;
-            this.gift.Visible = false;
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // canvas
             // 
@@ -228,7 +213,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(824, 553);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.cajacomodin);
             this.Controls.Add(this.groupBox1);
@@ -244,10 +228,10 @@
             this.groupBox1.PerformLayout();
             this.cajacomodin.ResumeLayout(false);
             this.cajacomodin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gift)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gift)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
 
@@ -271,7 +255,6 @@
         private System.Windows.Forms.Label comodin;
         private System.Windows.Forms.GroupBox groupBox3;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.Button button1;
     }
 }
 
