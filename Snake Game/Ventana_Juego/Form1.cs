@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,8 @@ namespace Ventana_Juego
 {
     public partial class Form1 : Form
     {
+        SoundPlayer boom = new SoundPlayer("boom.wav");
+        SoundPlayer com = new SoundPlayer("pop.wav");
         int paso = 0;
         int atravesar = 0;
         bool obstaculos = true;
@@ -467,7 +470,10 @@ namespace Ventana_Juego
                 reloj.Stop();
                 s = 0;
                 m = 0;
+                boom.Play();
+                this.Dispose();  
                 MessageBox.Show("Perdiste");
+                
             }
             if (modo == 2)
             {
@@ -484,8 +490,11 @@ namespace Ventana_Juego
                 lev = 1;
                 reloj.Stop();
                 s = 0;
-                m = 0; 
+                m = 0;
+                boom.Play();
+                this.Dispose();
                 MessageBox.Show("Perdiste");
+                
             }
             if (modo == 3 && obstaculos == true)
             {
@@ -503,7 +512,10 @@ namespace Ventana_Juego
                 reloj.Stop();
                 s = 0;
                 m = 0;
+                boom.Play();
+                this.Dispose();
                 MessageBox.Show("Perdiste");
+                
             }
             if (modo == 3 && obstaculos == false)
             {
@@ -514,7 +526,10 @@ namespace Ventana_Juego
                 reloj.Stop();
                 s = 0;
                 m = 0;
+                boom.Play();
+                this.Dispose();
                 MessageBox.Show("Perdiste");
+                
             }
         }
         public void choqueCuerpo()
@@ -1435,6 +1450,7 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(comida))
                 {
+                    com.Play();
                     comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
 
                     cabeza.meter();
@@ -1461,6 +1477,12 @@ namespace Ventana_Juego
                         pasarniv3_modo1();
 
                     }
+                    if (puntaje == 10 && lev == 3)
+                    {
+                        this.Dispose();
+                        Pasado pas = new Pasado();
+                        pas.ShowDialog();
+                    }
                 }
             }
 
@@ -1468,6 +1490,7 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(comida))
                 {
+                    com.Play();
                     comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
 
                     cabeza.meter();
@@ -1494,6 +1517,12 @@ namespace Ventana_Juego
                         pasarniv3_modo2();
 
                     }
+                    if (puntaje == 10 && lev == 3)
+                    {
+                        this.Dispose();
+                        Pasado pas = new Pasado();
+                        pas.ShowDialog();
+                    }
                 }
             }
 
@@ -1501,6 +1530,7 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(comida))
                 {
+                    com.Play();
                     comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
 
                     cabeza.meter();
@@ -1539,6 +1569,7 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(comida))
                 {
+                    com.Play();
                     comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
 
                     cabeza.meter();
@@ -1565,6 +1596,12 @@ namespace Ventana_Juego
                         pasarniv3_modo3_sin();
 
                     }
+                    if (puntaje == 10 && lev == 3)
+                    {
+                        this.Dispose();
+                        Pasado pas = new Pasado();
+                        pas.ShowDialog();
+                    }
                 }
             }
 
@@ -1586,12 +1623,33 @@ namespace Ventana_Juego
         }
         public void velocidad_despl()
         {
-            velocidad = velocidad - 5;
-            if (velocidad <= 0)
+            if (modo == 1)
             {
-                velocidad = 1;
+                velocidad = velocidad - 2;
+                if (velocidad <= 0)
+                {
+                    velocidad = 1;
+                }
+                bucle.Interval = velocidad;
             }
-            bucle.Interval = velocidad;
+            if (modo == 2)
+            {
+                velocidad = velocidad - 3;
+                if (velocidad <= 0)
+                {
+                    velocidad = 1;
+                }
+                bucle.Interval = velocidad;
+            }
+            if (modo == 3)
+            {
+                velocidad = velocidad - 5;
+                if (velocidad <= 0)
+                {
+                    velocidad = 1;
+                }
+                bucle.Interval = velocidad;
+            }
         }
         public void movimiento()
         {
