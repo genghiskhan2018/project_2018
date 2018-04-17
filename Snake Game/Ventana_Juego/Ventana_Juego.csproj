@@ -65,6 +65,12 @@
     <Compile Include="objeto.cs" />
     <Compile Include="Obstaculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Records_Top.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Records_Top.Designer.cs">
+      <DependentUpon>Records_Top.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Records_Top.resx">
+      <DependentUpon>Records_Top.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,6 +106,10 @@
     <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
       <Project>{ba16e4f5-4eac-487f-82ac-883277513fdc}</Project>
       <Name>CapaNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Objetos\Objetos.csproj">
+      <Project>{96ef58f5-7813-4613-aef9-a5346d5ad1e9}</Project>
+      <Name>Objetos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,23 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
+using Objetos;
+
 namespace CapaNegocio
 {
-    
+
     public class Login_XML
     {
         XML MyXML;
+        XML_DatosJuegos XML_dj;
         public Login_XML()
         {
             MyXML = new XML();
+            XML_dj = new XML_DatosJuegos();
         }
         public bool AgregarUsuario(string id_usuario, string clave)
         {
             return MyXML._Añadir(id_usuario, clave, "0");
         }
+
         public string Verificar_Usuario(string id_usuario, string clave)
         {
             return MyXML.VerficarUsuarioLogin(id_usuario, clave);
+        }
+
+        public List<Record> Records()
+        {
+            List<Record> listarecords = XML_dj.ObtenerInformacion();
+            return null;
+        }
+
+        public void AgregarRecord(string id_user, int movimientos, int modo,int lev, string puntos, string tiempo)
+        {
+            XML_dj._Añadir(id_user, movimientos, modo, lev, puntos, tiempo);
         }
     }
 }
