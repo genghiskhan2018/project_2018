@@ -185,6 +185,7 @@
             this.Controls.Add(this.dtpInicio);
             this.Controls.Add(this.cbTipo);
             this.Name = "Records_Top";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Top Records";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

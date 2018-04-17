@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-
+using Objetos;
 namespace CapaDatos
 {
     public class XML
@@ -18,7 +18,6 @@ namespace CapaDatos
             this.rutaXml = "Usuario.xml";
             doc = new XmlDocument();
             doc.Load(rutaXml);
-            Console.WriteLine("qwe");
         }
         /// <summary>
         /// Crea un nuevo usuario
@@ -76,6 +75,7 @@ namespace CapaDatos
         private XmlNode CrearUsuario(string id, string clave, string inicios_sesion)
         {
             XmlNode usuario = doc.CreateElement("usuario");
+
             XmlElement xid = doc.CreateElement("id_usuario");
             xid.InnerText = id;
             usuario.AppendChild(xid);
@@ -140,6 +140,29 @@ namespace CapaDatos
             {
                 Console.WriteLine(ex);
             }
+        }
+
+        public List<Usuario> LeerInfo()
+        {
+            List<Usuario> lista_Usuarios = new List<Usuario>();
+            doc.Load(rutaXml);
+
+            XmlNodeList listaUsuarios = doc.SelectNodes("Usuarios/usuario");
+
+            XmlNode unUser;
+
+            for (int i = 0; i < listaUsuarios.Count; i++)
+            {
+
+                unUser = listaUsuarios.Item(i);
+
+                string id_user = unUser.SelectSingleNode("id_usuario").InnerText;
+                int inicios_sesion = int.Parse(unUser.SelectSingleNode("inicios_sesion").InnerText);
+                //Usuario user = new Usuario(id_user, inicios_sesion);
+                lista_Usuarios.Add(new Usuario(id_user, inicios_sesion));
+            }
+
+            return lista_Usuarios;
         }
     }
 }

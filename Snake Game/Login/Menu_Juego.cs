@@ -90,5 +90,17 @@ namespace Ventana_Juego
         {
             MessageBox.Show("El modo más jugado es el: " + lg_xml.Modo_Jugado());
         }
+
+        private void reporte3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UltimoNivelSup uns = new UltimoNivelSup("Nivel");
+            uns.ShowDialog();
+        }
+
+        private void reporte4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UltimoNivelSup uns = new UltimoNivelSup("Sesiones");
+            uns.ShowDialog();
+        }
     }
 }

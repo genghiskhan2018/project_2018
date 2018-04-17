@@ -131,12 +131,14 @@
             this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
             this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
             this.reporte3ToolStripMenuItem.Text = "Ultimo nivel superado";
+            this.reporte3ToolStripMenuItem.Click += new System.EventHandler(this.reporte3ToolStripMenuItem_Click);
             // 
             // reporte4ToolStripMenuItem
             // 
             this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
             this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
             this.reporte4ToolStripMenuItem.Text = "Inicios de Sesion";
+            this.reporte4ToolStripMenuItem.Click += new System.EventHandler(this.reporte4ToolStripMenuItem_Click);
             // 
             // radioButton1
             // 

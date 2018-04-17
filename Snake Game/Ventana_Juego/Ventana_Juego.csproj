@@ -71,6 +71,12 @@
     <Compile Include="Records_Top.Designer.cs">
       <DependentUpon>Records_Top.cs</DependentUpon>
     </Compile>
+    <Compile Include="UltimoNivelSup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltimoNivelSup.Designer.cs">
+      <DependentUpon>UltimoNivelSup.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="Records_Top.resx">
       <DependentUpon>Records_Top.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltimoNivelSup.resx">
+      <DependentUpon>UltimoNivelSup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
