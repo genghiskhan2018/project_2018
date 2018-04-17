@@ -42,6 +42,7 @@ namespace Ventana_Juego
         string tipomovimientotemp = "";
         Boolean ejex = true, ejey = true;
         Login_XML lg = new Login_XML();
+        List<int> lista = new List<int>();
         public Form1(string id_user, bool obstaculos, int modo)
         {
             this.id_user = id_user;
@@ -76,8 +77,7 @@ namespace Ventana_Juego
         public void pasarniv1_modo1()
         {
             reloj.Enabled = true;
-            Random random = new Random();
-            this.canvas.Size = new System.Drawing.Size(800, 400); // solo para pruebas
+            this.canvas.Size = new System.Drawing.Size(800, 400);
             xdir = 0;
             ydir = 0;
             puntaje = 0;
@@ -103,8 +103,8 @@ namespace Ventana_Juego
             ejey = true;
             cabeza = new Cola(10, 10);
             comida = new Comida(79, 39);
-
-            List<int> lista = new List<int>();
+            lista.Clear();
+            
             for (int i = 0; i < 10; i++)
             {
                 if ((i % 2) == 0)
@@ -146,17 +146,15 @@ namespace Ventana_Juego
             atravesar = 0;
             reloj.Enabled = true;
             Random random = new Random();
-            this.canvas.Size = new System.Drawing.Size(800, 400); // solo para pruebas
-            xdir = 0;
+            this.canvas.Size = new System.Drawing.Size(800, 400);
             ydir = 0;
             puntaje = 0;
             puntos.Text = puntaje.ToString();
             ejex = true;
             ejey = true;
             cabeza = new Cola(10, 10);
-            comida = new Comida(79, 39);//79, 39
-
-            List<int> lista = new List<int>();
+            comida = new Comida(79, 39);
+            lista.Clear();
             for (int i = 0; i < 10; i++)
             {
                 if ((i % 2) == 0)
@@ -193,8 +191,7 @@ namespace Ventana_Juego
         public void pasarniv1_modo3_sin()
         {
             reloj.Enabled = true;
-            Random random = new Random();
-            this.canvas.Size = new System.Drawing.Size(800, 400); // solo para pruebas
+            this.canvas.Size = new System.Drawing.Size(800, 400);
             xdir = 0;
             ydir = 0;
             puntaje = 0;
@@ -228,7 +225,7 @@ namespace Ventana_Juego
             comida = new Comida(59, 29);
 
             Random random = new Random();
-            List<int> lista = new List<int>();
+            lista.Clear();
             for (int i = 0; i < 18; i++)
             {
                 if ((i % 2) == 0)
@@ -279,7 +276,7 @@ namespace Ventana_Juego
             comida = new Comida(59, 29);
 
             Random random = new Random();
-            List<int> lista = new List<int>();
+            lista.Clear();
             for (int i = 0; i < 12; i++)
             {
                 if ((i % 2) == 0)
@@ -348,7 +345,7 @@ namespace Ventana_Juego
             cabeza = new Cola(10, 10);
             comida = new Comida(49, 19);
             Random random = new Random();
-            List<int> lista = new List<int>();
+            lista.Clear();
             for (int i = 0; i < 22; i++)
             {
                 if ((i % 2) == 0)
@@ -401,7 +398,7 @@ namespace Ventana_Juego
             cabeza = new Cola(10, 10);
             comida = new Comida(49, 19);
             Random random = new Random();
-            List<int> lista = new List<int>();
+            lista.Clear();
             for (int i = 0; i < 20; i++)
             {
                 if ((i % 2) == 0)
@@ -454,19 +451,6 @@ namespace Ventana_Juego
         }
         public void findeJuego()
         {
-          /*  xdir = 0;
-            ydir = 0;
-            puntaje = 0;
-            movimientos = 0;
-            puntos.Text = "0";
-            lblMovimientos.Text = "0";
-            ejex = true;
-            ejey = true;
-            cabeza = new Cola(10, 10);
-            comida = new Comida();
-            MessageBox.Show("Perdiste");
-            //Guardar Info Reportes*/
-
             if (modo == 1)
             {
                 xdir = 0;
@@ -483,7 +467,6 @@ namespace Ventana_Juego
                 reloj.Stop();
                 s = 0;
                 m = 0;
-                pasarniv1_modo1(); // prueba 
                 MessageBox.Show("Perdiste");
             }
             if (modo == 2)
@@ -501,8 +484,7 @@ namespace Ventana_Juego
                 lev = 1;
                 reloj.Stop();
                 s = 0;
-                m = 0;
-                pasarniv1_modo2(); // prueba 
+                m = 0; 
                 MessageBox.Show("Perdiste");
             }
             if (modo == 3 && obstaculos == true)
@@ -521,7 +503,6 @@ namespace Ventana_Juego
                 reloj.Stop();
                 s = 0;
                 m = 0;
-                pasarniv1_modo3_con(); // prueba 
                 MessageBox.Show("Perdiste");
             }
             if (modo == 3 && obstaculos == false)
@@ -533,7 +514,6 @@ namespace Ventana_Juego
                 reloj.Stop();
                 s = 0;
                 m = 0;
-                pasarniv1_modo3_sin(); // prueba 
                 MessageBox.Show("Perdiste");
             }
         }
@@ -567,9 +547,6 @@ namespace Ventana_Juego
         {
             if (modo == 1)
             {
-
-
-               // label2.Text = lev.ToString();
                 label3.Text = cabeza.getX().ToString();
                 label4.Text = cabeza.getY().ToString();
                 label8.Text = velocidad.ToString();
@@ -602,9 +579,6 @@ namespace Ventana_Juego
 
             if (modo == 2)
             {
-
-
-               // label2.Text = lev.ToString();
                 label3.Text = cabeza.getX().ToString();
                 label4.Text = cabeza.getY().ToString();
                 label8.Text = velocidad.ToString();
@@ -929,9 +903,6 @@ namespace Ventana_Juego
 
             if (modo == 3 && obstaculos == true)
             {
-
-
-             //   label2.Text = lev.ToString();
                 label3.Text = cabeza.getX().ToString();
                 label4.Text = cabeza.getY().ToString();
                 label8.Text = velocidad.ToString();
@@ -992,9 +963,6 @@ namespace Ventana_Juego
 
             if (modo == 3 && obstaculos == false)
             {
-
-
-             //   label2.Text = lev.ToString();
                 label3.Text = cabeza.getX().ToString();
                 label4.Text = cabeza.getY().ToString();
                 label8.Text = velocidad.ToString();
@@ -1513,7 +1481,6 @@ namespace Ventana_Juego
                     {
 
                         lev = lev + 1;
-                        //cabeza = new Cola(10, 10);
                         this.canvas.Size = new System.Drawing.Size(600, 300);
                         pasarniv2_modo2();
 
@@ -1523,7 +1490,6 @@ namespace Ventana_Juego
                     {
 
                         lev = lev + 1;
-                        //cabeza = new Cola(10, 10);
                         this.canvas.Size = new System.Drawing.Size(500, 200);
                         pasarniv3_modo2();
 
