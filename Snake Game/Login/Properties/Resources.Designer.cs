@@ -113,6 +113,26 @@ namespace Login.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Joystick_48px {
+            get {
+                object obj = ResourceManager.GetObject("Joystick_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Menu_24px {
+            get {
+                object obj = ResourceManager.GetObject("Menu_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ok_48px {
             get {
                 object obj = ResourceManager.GetObject("Ok_48px", resourceCulture);
@@ -146,6 +166,16 @@ namespace Login.Properties {
         internal static System.Drawing.Bitmap snake_Sticker_by_odibz_source {
             get {
                 object obj = ResourceManager.GetObject("snake Sticker by odibz-source", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Trophy_48px {
+            get {
+                object obj = ResourceManager.GetObject("Trophy_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -124,11 +124,17 @@
   <data name="Delete_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Year of Snake_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Year of Snake_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Registration_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Registration_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Edit_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Edit_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Joystick_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Joystick_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ok_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ok_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,10 +148,13 @@
   <data name="Back_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Back_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Menu_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Checkmark_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checkmark_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Year of Snake_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Year of Snake_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Trophy_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Trophy_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

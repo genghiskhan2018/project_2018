@@ -118,7 +118,6 @@ namespace Login
                     stopSimpleSound();
                     this.Dispose();
                     Menu_Juego mj = new Menu_Juego(id_user);
-                   // this.Hide();
                     mj.Show();
                 }
                 else

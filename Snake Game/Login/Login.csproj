@@ -54,6 +54,12 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu_Juego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Juego.Designer.cs">
+      <DependentUpon>Menu_Juego.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageBoxRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_Juego.resx">
+      <DependentUpon>Menu_Juego.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageBoxRegistro.resx">
       <DependentUpon>MessageBoxRegistro.cs</DependentUpon>
@@ -148,6 +157,15 @@
       <Project>{603fef75-630e-4471-bbcd-848b6a18996f}</Project>
       <Name>Ventana_Juego</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joystick_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trophy_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

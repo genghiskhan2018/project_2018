@@ -17,18 +17,22 @@ namespace Ventana_Juego
         {
             InitializeComponent();
             this.usuario = usuario;
+            groupBox2.Visible = false;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            if (radioButton3.Checked) groupBox2.Enabled = true;
-            else groupBox2.Enabled = false;
+            RadioButton rb = (RadioButton)sender;
+
+            if (rb.Checked) groupBox2.Visible = true;
+            else groupBox2.Visible = false;
         }
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Hacer que abra login de nuevo
-            //this.Dispose();
+            this.Dispose();
+            Login.Login lo = new Login.Login();
+            lo.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,10 +44,10 @@ namespace Ventana_Juego
         {
             if (radioButton2.Checked)
             {
-                Form1 ventana_juego = new Form1(usuario,false,1);
+                Form1 ventana_juego = new Form1(usuario, false, 1);
                 ventana_juego.ShowDialog();
             }
-            else if(radioButton1.Checked)
+            else if (radioButton1.Checked)
             {
                 Form1 ventana_juego = new Form1(usuario, false, 2);
                 ventana_juego.ShowDialog();
@@ -64,6 +68,10 @@ namespace Ventana_Juego
         }
 
         private void Menu_Juego_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+        private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
