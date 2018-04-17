@@ -146,6 +146,8 @@ namespace Ventana_Juego
 
         public void pasarniv1_modo3_con()
         {
+            gift.Visible = true;
+            comodin.Visible = true;
             atravesar = 0;
             reloj.Enabled = true;
             Random random = new Random();
@@ -498,6 +500,8 @@ namespace Ventana_Juego
             }
             if (modo == 3 && obstaculos == true)
             {
+                gift.Visible = false;
+                comodin.Visible = false;
                 xdir = 0;
                 ydir = 0;
                 movimientos = 0;
@@ -562,9 +566,6 @@ namespace Ventana_Juego
         {
             if (modo == 1)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
 
                 if (lev == 1)
                 {
@@ -594,9 +595,6 @@ namespace Ventana_Juego
 
             if (modo == 2)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
 
                 if (lev == 1)
                 {
@@ -918,9 +916,6 @@ namespace Ventana_Juego
 
             if (modo == 3 && obstaculos == true)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
                 comodin.Text = atravesar.ToString();
 
                 if (lev == 1)
@@ -978,9 +973,6 @@ namespace Ventana_Juego
 
             if (modo == 3 && obstaculos == false)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
 
                 if (lev == 1)
                 {

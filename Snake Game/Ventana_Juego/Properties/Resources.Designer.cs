@@ -63,9 +63,39 @@ namespace Ventana_Juego.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gift_50px {
+            get {
+                object obj = ResourceManager.GetObject("Gift_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Menu_24px {
             get {
                 object obj = ResourceManager.GetObject("Menu_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stopwatch_48px {
+            get {
+                object obj = ResourceManager.GetObject("Stopwatch_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stopwatch2_48px {
+            get {
+                object obj = ResourceManager.GetObject("Stopwatch2_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -122,5 +122,14 @@
   <ItemGroup>
     <None Include="Resources\Menu_24px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stopwatch_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stopwatch2_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gift_50px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
