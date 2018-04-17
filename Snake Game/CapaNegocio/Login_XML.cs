@@ -38,5 +38,26 @@ namespace CapaNegocio
         {
             XML_dj._Añadir(id_user, movimientos, modo, lev, puntos, tiempo);
         }
+
+        public string Modo_Jugado()
+        {
+            int modo1 = 0, modo2 = 0, modo3 = 0;
+            List<Record> lista_records = Records();
+            modo1 = lista_records.Where(item => item.Modo == 1).Count();
+            modo2 = lista_records.Where(item => item.Modo == 2).Count();
+            modo3 = lista_records.Where(item => item.Modo == 3).Count();
+            if (modo1 >= modo2 && modo1 >= modo3)
+            {
+                return "1";
+            }
+            else if (modo2 >= modo1 && modo2 >= modo3)
+            {
+                return "2";
+            }
+            else
+            {
+                return "3";
+            }
+        }
     }
 }

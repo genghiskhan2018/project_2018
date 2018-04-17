@@ -31,6 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_Juego));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporte4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -40,15 +48,6 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btnJugar = new System.Windows.Forms.Button();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporte5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.button1 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -68,6 +67,76 @@
             this.menuStrip1.Size = new System.Drawing.Size(784, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cerrarSesionToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.opcionesToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opcionesToolStripMenuItem.Image = global::Login.Properties.Resources.Menu_24px;
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            this.opcionesToolStripMenuItem.ShortcutKeyDisplayString = "F10";
+            this.opcionesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+            this.opcionesToolStripMenuItem.Text = "Opciones";
+            this.opcionesToolStripMenuItem.ToolTipText = "Opciones";
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(166, 30);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(166, 30);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // recordsToolStripMenuItem
+            // 
+            this.recordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporte1ToolStripMenuItem,
+            this.reporte2ToolStripMenuItem,
+            this.reporte3ToolStripMenuItem,
+            this.reporte4ToolStripMenuItem});
+            this.recordsToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordsToolStripMenuItem.Image = global::Login.Properties.Resources.Trophy_48px;
+            this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
+            this.recordsToolStripMenuItem.ShortcutKeyDisplayString = "F11";
+            this.recordsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.recordsToolStripMenuItem.Text = "Records";
+            this.recordsToolStripMenuItem.ToolTipText = "Records";
+            // 
+            // reporte1ToolStripMenuItem
+            // 
+            this.reporte1ToolStripMenuItem.Name = "reporte1ToolStripMenuItem";
+            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.reporte1ToolStripMenuItem.Text = "Records Top 10";
+            this.reporte1ToolStripMenuItem.Click += new System.EventHandler(this.reporte1ToolStripMenuItem_Click);
+            // 
+            // reporte2ToolStripMenuItem
+            // 
+            this.reporte2ToolStripMenuItem.Name = "reporte2ToolStripMenuItem";
+            this.reporte2ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.reporte2ToolStripMenuItem.Text = "Modo más jugado";
+            this.reporte2ToolStripMenuItem.Click += new System.EventHandler(this.reporte2ToolStripMenuItem_Click);
+            // 
+            // reporte3ToolStripMenuItem
+            // 
+            this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
+            this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.reporte3ToolStripMenuItem.Text = "Ultimo nivel superado";
+            // 
+            // reporte4ToolStripMenuItem
+            // 
+            this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
+            this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(218, 30);
+            this.reporte4ToolStripMenuItem.Text = "Inicios de Sesion";
             // 
             // radioButton1
             // 
@@ -173,85 +242,10 @@
             this.btnJugar.UseVisualStyleBackColor = false;
             this.btnJugar.Click += new System.EventHandler(this.btnJugar_Click);
             // 
-            // opcionesToolStripMenuItem
-            // 
-            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cerrarSesionToolStripMenuItem,
-            this.salirToolStripMenuItem});
-            this.opcionesToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opcionesToolStripMenuItem.Image = global::Login.Properties.Resources.Menu_24px;
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.ShortcutKeyDisplayString = "F10";
-            this.opcionesToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
-            this.opcionesToolStripMenuItem.Text = "Opciones";
-            this.opcionesToolStripMenuItem.ToolTipText = "Opciones";
-            // 
-            // cerrarSesionToolStripMenuItem
-            // 
-            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
-            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // recordsToolStripMenuItem
-            // 
-            this.recordsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporte1ToolStripMenuItem,
-            this.reporte2ToolStripMenuItem,
-            this.reporte3ToolStripMenuItem,
-            this.reporte4ToolStripMenuItem,
-            this.reporte5ToolStripMenuItem});
-            this.recordsToolStripMenuItem.Font = new System.Drawing.Font("Dubai", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordsToolStripMenuItem.Image = global::Login.Properties.Resources.Trophy_48px;
-            this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
-            this.recordsToolStripMenuItem.ShortcutKeyDisplayString = "F11";
-            this.recordsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
-            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
-            this.recordsToolStripMenuItem.Text = "Records";
-            this.recordsToolStripMenuItem.ToolTipText = "Records";
-            // 
-            // reporte1ToolStripMenuItem
-            // 
-            this.reporte1ToolStripMenuItem.Name = "reporte1ToolStripMenuItem";
-            this.reporte1ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.reporte1ToolStripMenuItem.Text = "Reporte 1";
-            // 
-            // reporte2ToolStripMenuItem
-            // 
-            this.reporte2ToolStripMenuItem.Name = "reporte2ToolStripMenuItem";
-            this.reporte2ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.reporte2ToolStripMenuItem.Text = "Reporte 2";
-            // 
-            // reporte3ToolStripMenuItem
-            // 
-            this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
-            this.reporte3ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.reporte3ToolStripMenuItem.Text = "Reporte 3";
-            // 
-            // reporte4ToolStripMenuItem
-            // 
-            this.reporte4ToolStripMenuItem.Name = "reporte4ToolStripMenuItem";
-            this.reporte4ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.reporte4ToolStripMenuItem.Text = "Reporte 4";
-            // 
-            // reporte5ToolStripMenuItem
-            // 
-            this.reporte5ToolStripMenuItem.Name = "reporte5ToolStripMenuItem";
-            this.reporte5ToolStripMenuItem.Size = new System.Drawing.Size(180, 30);
-            this.reporte5ToolStripMenuItem.Text = "Reporte 5";
-            // 
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.DimGray;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(0, 36);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
@@ -323,7 +317,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporte2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporte3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporte4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporte5ToolStripMenuItem;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.Button button1;

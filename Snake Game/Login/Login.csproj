@@ -153,6 +153,10 @@
       <Project>{ba16e4f5-4eac-487f-82ac-883277513fdc}</Project>
       <Name>CapaNegocio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Objetos\Objetos.csproj">
+      <Project>{96ef58f5-7813-4613-aef9-a5346d5ad1e9}</Project>
+      <Name>Objetos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ventana_Juego\Ventana_Juego.csproj">
       <Project>{603fef75-630e-4471-bbcd-848b6a18996f}</Project>
       <Name>Ventana_Juego</Name>

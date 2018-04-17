@@ -7,15 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocio;
+using Objetos;
 
 namespace Ventana_Juego
 {
     public partial class Menu_Juego : Form
     {
         string usuario;
+        Login_XML lg_xml;
         public Menu_Juego(string usuario)
         {
             InitializeComponent();
+            lg_xml = new Login_XML();
             this.usuario = usuario;
             groupBox2.Visible = false;
         }
@@ -74,6 +78,17 @@ namespace Ventana_Juego
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void reporte1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Records_Top rt = new Records_Top();
+            rt.ShowDialog();
+        }
+
+        private void reporte2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("El modo más jugado es el: " + lg_xml.Modo_Jugado());
         }
     }
 }
