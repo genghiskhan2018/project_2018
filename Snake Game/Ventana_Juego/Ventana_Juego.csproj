@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Records_Top.resx">
       <DependentUpon>Records_Top.cs</DependentUpon>
@@ -111,6 +112,15 @@
       <Project>{96ef58f5-7813-4613-aef9-a5346d5ad1e9}</Project>
       <Name>Objetos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vertical Flag_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2018-04-17 at 8.42.34 AM.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

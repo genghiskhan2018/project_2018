@@ -284,6 +284,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu_Juego";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Juego";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_Juego_FormClosed);

@@ -40,6 +40,7 @@ namespace Ventana_Juego
         {
             switch (cbTipo.Text)
             {
+                
                 case "Puntuacion":
                     lista_record.OrderByDescending(x => x.Puntos);
                     DataGridInfo(lista_record);
