@@ -54,7 +54,7 @@ namespace Ventana_Juego
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-            //serialPort1.Open();
+          //  serialPort1.Open();
             if (modo == 1)
             {
                 pasarniv1_modo1();
@@ -146,6 +146,9 @@ namespace Ventana_Juego
 
         public void pasarniv1_modo3_con()
         {
+            gift.Visible = true;
+            comodin.Visible = true;
+            cajacomodin.Visible = true;
             atravesar = 0;
             reloj.Enabled = true;
             Random random = new Random();
@@ -498,6 +501,9 @@ namespace Ventana_Juego
             }
             if (modo == 3 && obstaculos == true)
             {
+                gift.Visible = false;
+                cajacomodin.Visible = false;
+                comodin.Visible = false;
                 xdir = 0;
                 ydir = 0;
                 movimientos = 0;
@@ -562,9 +568,6 @@ namespace Ventana_Juego
         {
             if (modo == 1)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
 
                 if (lev == 1)
                 {
@@ -594,9 +597,6 @@ namespace Ventana_Juego
 
             if (modo == 2)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
 
                 if (lev == 1)
                 {
@@ -918,9 +918,6 @@ namespace Ventana_Juego
 
             if (modo == 3 && obstaculos == true)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
                 comodin.Text = atravesar.ToString();
 
                 if (lev == 1)
@@ -978,9 +975,6 @@ namespace Ventana_Juego
 
             if (modo == 3 && obstaculos == false)
             {
-                label3.Text = cabeza.getX().ToString();
-                label4.Text = cabeza.getY().ToString();
-                label8.Text = velocidad.ToString();
 
                 if (lev == 1)
                 {
@@ -1562,6 +1556,13 @@ namespace Ventana_Juego
                     {
                         atravesar = atravesar + 1;
                     }
+
+                    if (puntaje == 10 && lev == 3)
+                    {
+                        this.Dispose();
+                        Pasado pas = new Pasado();
+                        pas.ShowDialog();
+                    }
                 }
             }
 
@@ -1609,6 +1610,11 @@ namespace Ventana_Juego
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
