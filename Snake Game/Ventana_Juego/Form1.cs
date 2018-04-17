@@ -148,6 +148,7 @@ namespace Ventana_Juego
         {
             gift.Visible = true;
             comodin.Visible = true;
+            cajacomodin.Visible = true;
             atravesar = 0;
             reloj.Enabled = true;
             Random random = new Random();
@@ -501,6 +502,7 @@ namespace Ventana_Juego
             if (modo == 3 && obstaculos == true)
             {
                 gift.Visible = false;
+                cajacomodin.Visible = false;
                 comodin.Visible = false;
                 xdir = 0;
                 ydir = 0;
@@ -1601,6 +1603,11 @@ namespace Ventana_Juego
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }

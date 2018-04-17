@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.puntos = new System.Windows.Forms.Label();
-            this.bucle = new System.Windows.Forms.Timer(this.components);
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.bucle = new System.Windows.Forms.Timer();
+            this.serialPort1 = new System.IO.Ports.SerialPort();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMovimientos = new System.Windows.Forms.Label();
-            this.reloj = new System.Windows.Forms.Timer(this.components);
+            this.reloj = new System.Windows.Forms.Timer();
             this.rel = new System.Windows.Forms.Label();
-            this.gift = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.canvas = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cajacomodin = new System.Windows.Forms.GroupBox();
             this.comodin = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.gift)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gift = new System.Windows.Forms.PictureBox();
+            this.canvas = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.cajacomodin.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gift)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -119,37 +120,6 @@
             this.rel.TabIndex = 26;
             this.rel.Text = "0";
             // 
-            // gift
-            // 
-            this.gift.Image = global::Ventana_Juego.Properties.Resources.Gift_50px;
-            this.gift.Location = new System.Drawing.Point(3, 16);
-            this.gift.Margin = new System.Windows.Forms.Padding(0);
-            this.gift.Name = "gift";
-            this.gift.Size = new System.Drawing.Size(249, 86);
-            this.gift.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gift.TabIndex = 27;
-            this.gift.TabStop = false;
-            this.gift.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Ventana_Juego.Properties.Resources.Stopwatch2_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 19);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(194, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
-            // canvas
-            // 
-            this.canvas.Location = new System.Drawing.Point(12, 12);
-            this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(800, 400);
-            this.canvas.TabIndex = 0;
-            this.canvas.TabStop = false;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
@@ -157,24 +127,25 @@
             this.groupBox1.Controls.Add(this.puntos);
             this.groupBox1.Controls.Add(this.lblMovimientos);
             this.groupBox1.Font = new System.Drawing.Font("Poor Richard", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 412);
+            this.groupBox1.Location = new System.Drawing.Point(33, 440);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(233, 110);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Marcadores";
             // 
-            // groupBox2
+            // cajacomodin
             // 
-            this.groupBox2.Controls.Add(this.comodin);
-            this.groupBox2.Controls.Add(this.gift);
-            this.groupBox2.Font = new System.Drawing.Font("Poor Richard", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(311, 412);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(257, 110);
-            this.groupBox2.TabIndex = 30;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Comodínes";
+            this.cajacomodin.Controls.Add(this.comodin);
+            this.cajacomodin.Controls.Add(this.gift);
+            this.cajacomodin.Font = new System.Drawing.Font("Poor Richard", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cajacomodin.Location = new System.Drawing.Point(311, 440);
+            this.cajacomodin.Name = "cajacomodin";
+            this.cajacomodin.Size = new System.Drawing.Size(257, 110);
+            this.cajacomodin.TabIndex = 30;
+            this.cajacomodin.TabStop = false;
+            this.cajacomodin.Text = "Comodínes";
+            this.cajacomodin.Visible = false;
             // 
             // comodin
             // 
@@ -193,38 +164,91 @@
             this.groupBox3.Controls.Add(this.rel);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Font = new System.Drawing.Font("Poor Richard", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(612, 412);
+            this.groupBox3.Location = new System.Drawing.Point(612, 440);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 110);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cronómetro";
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Ventana_Juego.Properties.Resources.Delete_64px;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(753, 3);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 34);
+            this.button1.TabIndex = 32;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Ventana_Juego.Properties.Resources.Stopwatch2_48px;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 19);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(194, 80);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // gift
+            // 
+            this.gift.Image = global::Ventana_Juego.Properties.Resources.Gift_50px;
+            this.gift.Location = new System.Drawing.Point(3, 16);
+            this.gift.Margin = new System.Windows.Forms.Padding(0);
+            this.gift.Name = "gift";
+            this.gift.Size = new System.Drawing.Size(249, 86);
+            this.gift.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gift.TabIndex = 27;
+            this.gift.TabStop = false;
+            this.gift.Visible = false;
+            // 
+            // canvas
+            // 
+            this.canvas.Location = new System.Drawing.Point(12, 40);
+            this.canvas.Name = "canvas";
+            this.canvas.Size = new System.Drawing.Size(800, 400);
+            this.canvas.TabIndex = 0;
+            this.canvas.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(839, 523);
+            this.ClientSize = new System.Drawing.Size(824, 553);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.cajacomodin);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.canvas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snake Game";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.gift)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.cajacomodin.ResumeLayout(false);
+            this.cajacomodin.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gift)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -243,9 +267,11 @@
         private System.Windows.Forms.Label rel;
         private System.Windows.Forms.PictureBox gift;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox cajacomodin;
         private System.Windows.Forms.Label comodin;
         private System.Windows.Forms.GroupBox groupBox3;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

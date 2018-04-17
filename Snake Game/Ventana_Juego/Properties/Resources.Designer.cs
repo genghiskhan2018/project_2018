@@ -63,6 +63,16 @@ namespace Ventana_Juego.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delete_64px {
+            get {
+                object obj = ResourceManager.GetObject("Delete_64px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gift_50px {
             get {
                 object obj = ResourceManager.GetObject("Gift_50px", resourceCulture);
