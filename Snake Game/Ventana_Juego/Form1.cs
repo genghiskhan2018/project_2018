@@ -460,6 +460,7 @@ namespace Ventana_Juego
         {
             if (modo == 1)
             {
+                lg.AgregarRecord(id_user, int.Parse(lblMovimientos.Text), modo, lev, puntos.Text, m + ":" + s);
                 xdir = 0;
                 ydir = 0;
                 movimientos = 0;
@@ -481,6 +482,7 @@ namespace Ventana_Juego
             }
             if (modo == 2)
             {
+                lg.AgregarRecord(id_user, movimientos, modo, lev, puntos.Text, m + ":" + s);
                 xdir = 0;
                 ydir = 0;
                 movimientos = 0;
@@ -502,6 +504,7 @@ namespace Ventana_Juego
             }
             if (modo == 3 && obstaculos == true)
             {
+                lg.AgregarRecord(id_user, movimientos, modo, lev, puntos.Text, m + ":" + s);
                 gift.Visible = false;
                 cajacomodin.Visible = false;
                 comodin.Visible = false;
@@ -526,6 +529,7 @@ namespace Ventana_Juego
             }
             if (modo == 3 && obstaculos == false)
             {
+                lg.AgregarRecord(id_user, movimientos, modo, lev, puntos.Text, m + ":" + s);
                 velocidad = 100;
                 puntaje = 0;
                 puntos.Text = "0";
@@ -1444,6 +1448,7 @@ namespace Ventana_Juego
 
         private void bucle_Tick(object sender, EventArgs e)
         {
+            verificarMovimientos();
             dibujar();
             movimiento();
             choqueCuerpo();
@@ -1481,6 +1486,7 @@ namespace Ventana_Juego
                     }
                     if (puntaje == 10 && lev == 3)
                     {
+                        lg.AgregarRecord(id_user, int.Parse(lblMovimientos.Text), modo, lev, puntos.Text, m + ":" + s);
                         this.Dispose();
                         Pasado pas = new Pasado();
                         pas.ShowDialog();
@@ -1521,6 +1527,7 @@ namespace Ventana_Juego
                     }
                     if (puntaje == 10 && lev == 3)
                     {
+                        lg.AgregarRecord(id_user, int.Parse(lblMovimientos.Text), modo, lev, puntos.Text, m + ":" + s);
                         this.Dispose();
                         Pasado pas = new Pasado();
                         pas.ShowDialog();
@@ -1567,6 +1574,7 @@ namespace Ventana_Juego
 
                     if (puntaje == 10 && lev == 3)
                     {
+                        lg.AgregarRecord(id_user, int.Parse(lblMovimientos.Text), modo, lev, puntos.Text, m + ":" + s);
                         this.Dispose();
                         Pasado pas = new Pasado();
                         pas.ShowDialog();
@@ -1607,6 +1615,7 @@ namespace Ventana_Juego
                     }
                     if (puntaje == 10 && lev == 3)
                     {
+                        lg.AgregarRecord(id_user, int.Parse(lblMovimientos.Text), modo, lev, puntos.Text, m + ":" + s);
                         this.Dispose();
                         Pasado pas = new Pasado();
                         pas.ShowDialog();
@@ -1614,7 +1623,6 @@ namespace Ventana_Juego
                 }
             }
 
-            verificarMovimientos();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

@@ -31,6 +31,7 @@ namespace Ventana_Juego
             }
             else if (tipo.Equals("Sesiones"))
             {
+                this.Text = "Inicios de sesion";
                 dataGridView1.DataSource = lg_xml.Inicios_Sesion();
             }
             

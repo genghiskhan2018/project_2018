@@ -29,7 +29,11 @@ namespace Ventana_Juego
                 List<Record> lista_record = lg_xml.Records();
                 SepararFecha(lista_record);
             }
-            else if (dtpInicio.Value <= dtpFinal.Value && !chbUsarFecha.Checked)
+            else
+            {
+                MessageBox.Show("Kendall no ponga una fecha inicio mayor que la otra");
+            }
+            if (!chbUsarFecha.Checked)
             {
                 List<Record> lista_record = lg_xml.Records();
                 OrdenarLista(lista_record);

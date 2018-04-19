@@ -80,9 +80,7 @@ namespace CapaDatos
             
             for (int i = 0; i < listaRecords.Count; i++)
             {
-
                 unRecor = listaRecords.Item(i);
-
                 string id_user = unRecor.SelectSingleNode("id_usuario").InnerText;
                 int movimientos = int.Parse(unRecor.SelectSingleNode("movimientos").InnerText);
                 int modo = int.Parse(unRecor.SelectSingleNode("modo").InnerText);
@@ -90,7 +88,6 @@ namespace CapaDatos
                 int puntos = int.Parse(unRecor.SelectSingleNode("puntos").InnerText);
                 string tiempo = unRecor.SelectSingleNode("tiempo").InnerText;
                 DateTime fecha = DateTime.ParseExact(unRecor.SelectSingleNode("fecha").InnerText, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-                //Record record = new Record(id_user, modo,puntos,tiempo,fecha);
                 listarecord.Add(new Record(id_user, movimientos, modo, nivel, puntos, tiempo, fecha));
             }
 
