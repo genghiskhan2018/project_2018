@@ -55,7 +55,17 @@ namespace Ventana_Juego
 
         private void DataGridInfo(List<Record> lista_record)
         {
-            dataGridView1.DataSource = lista_record;
+            int i = 0;
+            List<Record> lista_top = new List<Record>();
+            lista_record.ForEach(delegate(Record item)
+            {
+                if (i < 10)
+                {
+                    lista_top.Add(item);
+                    i++;
+                }
+            });
+            dataGridView1.DataSource = lista_top;
         }
 
         private void SepararFecha(List<Record> lista_record)
