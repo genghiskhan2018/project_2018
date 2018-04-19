@@ -31,7 +31,7 @@ namespace CapaNegocio
         public List<Record> Records()
         {
             List<Record> listarecords = XML_dj.ObtenerInformacion();
-            return null;
+            return listarecords;
         }
 
         public void AgregarRecord(string id_user, int movimientos, int modo,int lev, string puntos, string tiempo)
