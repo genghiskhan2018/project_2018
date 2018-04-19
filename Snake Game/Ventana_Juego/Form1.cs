@@ -55,7 +55,7 @@ namespace Ventana_Juego
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-           // serialPort1.Open();
+            serialPort1.Open();
             if (modo == 1)
             {
                 pasarniv1_modo1();
@@ -555,8 +555,8 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(temp))
                 {
-                    
                     findeJuego();
+                    break;
                 }
                 else
                 {
@@ -1385,33 +1385,39 @@ namespace Ventana_Juego
             {
 
                 tipomovimiento = serialPort1.ReadLine().ToString();
-                if (serialPort1.ReadLine().Equals("UP"))
+                if (ejex)
                 {
-                    ydir = -espacio;
-                    xdir = 0;
-                    ejex = false;
-                    ejey = true;
+                    if (serialPort1.ReadLine().Equals("UP"))
+                    {
+                        ydir = -espacio;
+                        xdir = 0;
+                        ejex = false;
+                        ejey = true;
+                    }
+                    if (serialPort1.ReadLine().Equals("DOWN"))
+                    {
+                        ydir = espacio;
+                        xdir = 0;
+                        ejex = false;
+                        ejey = true;
+                    }
                 }
-                if (serialPort1.ReadLine().Equals("DOWN"))
+                if (ejey)
                 {
-                    ydir = espacio;
-                    xdir = 0;
-                    ejex = false;
-                    ejey = true;
-                }
-                if (serialPort1.ReadLine().Equals("RIGHT"))
-                {
-                    ydir = 0;
-                    xdir = espacio;
-                    ejex = true;
-                    ejey = false;
-                }
-                if (serialPort1.ReadLine().Equals("LEFT"))
-                {
-                    ydir = 0;
-                    xdir = -espacio;
-                    ejex = true;
-                    ejey = false;
+                    if (serialPort1.ReadLine().Equals("RIGHT"))
+                    {
+                        ydir = 0;
+                        xdir = espacio;
+                        ejex = true;
+                        ejey = false;
+                    }
+                    if (serialPort1.ReadLine().Equals("LEFT"))
+                    {
+                        ydir = 0;
+                        xdir = -espacio;
+                        ejex = true;
+                        ejey = false;
+                    }
                 }
             }
             catch (Exception ex)
