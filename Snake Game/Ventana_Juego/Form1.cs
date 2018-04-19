@@ -15,6 +15,7 @@ namespace Ventana_Juego
     {
         SoundPlayer boom = new SoundPlayer("boom.wav");
         SoundPlayer com = new SoundPlayer("pop.wav");
+       
         int paso = 0;
         int atravesar = 0;
         bool obstaculos = true;
@@ -54,7 +55,7 @@ namespace Ventana_Juego
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-          //  serialPort1.Open();
+           // serialPort1.Open();
             if (modo == 1)
             {
                 pasarniv1_modo1();
@@ -554,6 +555,7 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(temp))
                 {
+                    
                     findeJuego();
                 }
                 else
