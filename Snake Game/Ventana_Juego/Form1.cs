@@ -560,6 +560,7 @@ namespace Ventana_Juego
                 if (cabeza.interseccion(temp))
                 {
                     findeJuego();
+                    MessageBox.Show("Choque de cuerpo");
                     break;
                 }
                 else
