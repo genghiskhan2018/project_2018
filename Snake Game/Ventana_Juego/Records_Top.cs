@@ -42,16 +42,13 @@ namespace Ventana_Juego
             {
                 
                 case "Puntuacion":
-                    lista_record.OrderByDescending(x => x.Puntos);
-                    DataGridInfo(lista_record);
+                    DataGridInfo(lista_record.OrderByDescending(x => x.Puntos).ToList());
                     break;
                 case "Tiempo":
-                    lista_record.OrderBy(x => x.Tiempo);
-                    DataGridInfo(lista_record);
+                    DataGridInfo(lista_record.OrderBy(x => x.Tiempo).ToList());
                     break;
                 case "Movimientos":
-                    lista_record.OrderBy(x => x.Movimientos);
-                    DataGridInfo(lista_record);
+                    DataGridInfo(lista_record.OrderBy(x => x.Movimientos).ToList());
                     break;
             }
         }
@@ -63,7 +60,13 @@ namespace Ventana_Juego
 
         private void SepararFecha(List<Record> lista_record)
         {
-            List<Record> nueva_lista = new List<Record>();
+            OrdenarLista(lista_record.Where(item => dtpInicio.Value <= item.Fecha && dtpFinal.Value >= item.Fecha).ToList());
+        }
+    }
+}
+
+/*
+List<Record> nueva_lista = new List<Record>();
             foreach (Record item in lista_record)
             {
                 if (dtpInicio.Value <= item.Fecha && dtpFinal.Value >= item.Fecha)
@@ -71,7 +74,4 @@ namespace Ventana_Juego
                     nueva_lista.Add(item);
                 }
             }
-            OrdenarLista(nueva_lista);
-        }
-    }
-}
+*/

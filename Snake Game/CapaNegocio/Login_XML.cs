@@ -39,6 +39,11 @@ namespace CapaNegocio
             XML_dj._Añadir(id_user, movimientos, modo, lev, puntos, tiempo);
         }
 
+        public object Inicios_Sesion()
+        {
+            return MyXML.LeerInfo().OrderByDescending(item => item.inicios_sesion).ToList();
+        }
+
         public string Modo_Jugado()
         {
             int modo1 = 0, modo2 = 0, modo3 = 0;
@@ -58,6 +63,12 @@ namespace CapaNegocio
             {
                 return "3";
             }
+        }
+
+        public List<Record> UltimoNivelSup()
+        {
+            List<Record> lista = Records();
+            return lista.Where(item => item.Nivel == 3 && item.Puntos == 10).ToList();
         }
     }
 }
