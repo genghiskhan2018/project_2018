@@ -104,7 +104,9 @@ namespace Login
                 if (agregado)
                 {
                     MessageBox.Show("Usuario Agregado");
-                    this.Dispose();
+                    Login lo = new Login();
+                    this.Hide();
+                    lo.Show();
                 }
                 else
                 {

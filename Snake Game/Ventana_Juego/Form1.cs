@@ -15,7 +15,8 @@ namespace Ventana_Juego
     {
         SoundPlayer boom = new SoundPlayer("boom.wav");
         SoundPlayer com = new SoundPlayer("pop.wav");
-       
+        SoundPlayer menu = new SoundPlayer("menu.wav");
+
         int paso = 0;
         int atravesar = 0;
         bool obstaculos = true;
@@ -55,7 +56,7 @@ namespace Ventana_Juego
             espacio = 10;
             InitializeComponent();
             juego = canvas.CreateGraphics();
-            serialPort1.Open();
+           // serialPort1.Open();
             if (modo == 1)
             {
                 pasarniv1_modo1();
@@ -476,9 +477,10 @@ namespace Ventana_Juego
                 s = 0;
                 m = 0;
                 boom.Play();
-                this.Dispose();  
+                this.Dispose();
                 MessageBox.Show("Perdiste");
-                
+                menu.PlayLooping();
+
             }
             if (modo == 2)
             {
@@ -500,7 +502,8 @@ namespace Ventana_Juego
                 boom.Play();
                 this.Dispose();
                 MessageBox.Show("Perdiste");
-                
+                menu.PlayLooping();
+
             }
             if (modo == 3 && obstaculos == true)
             {
@@ -525,7 +528,8 @@ namespace Ventana_Juego
                 boom.Play();
                 this.Dispose();
                 MessageBox.Show("Perdiste");
-                
+                menu.PlayLooping();
+
             }
             if (modo == 3 && obstaculos == false)
             {
@@ -540,7 +544,8 @@ namespace Ventana_Juego
                 boom.Play();
                 this.Dispose();
                 MessageBox.Show("Perdiste");
-                
+                menu.PlayLooping();
+
             }
         }
         public void choqueCuerpo()
@@ -559,8 +564,8 @@ namespace Ventana_Juego
             {
                 if (cabeza.interseccion(temp))
                 {
-                    findeJuego();
                     MessageBox.Show("Choque de cuerpo");
+                    findeJuego();
                     break;
                 }
                 else
@@ -1457,7 +1462,7 @@ namespace Ventana_Juego
             if (modo == 1)
             {
                 if (cabeza.interseccion(comida))
-                {
+                {                 
                     com.Play();
                     comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
 
@@ -1479,7 +1484,6 @@ namespace Ventana_Juego
 
                     if (puntaje == 5 && lev == 2)
                     {
-
                         lev = lev + 1;
                         this.canvas.Size = new System.Drawing.Size(500, 200);
                         pasarniv3_modo1();
@@ -1501,7 +1505,6 @@ namespace Ventana_Juego
                 {
                     com.Play();
                     comida.colocar(((canvas.Size.Width / 10) - 10), ((canvas.Size.Height / 10) - 10));
-
                     cabeza.meter();
 
                     puntaje = puntaje + 1;

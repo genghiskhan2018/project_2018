@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,10 +15,12 @@ namespace Ventana_Juego
 {
     public partial class Menu_Juego : Form
     {
+        SoundPlayer menu = new SoundPlayer("menu.wav");
         string usuario;
         Login_XML lg_xml;
         public Menu_Juego(string usuario)
         {
+            menu.PlayLooping();
             InitializeComponent();
             lg_xml = new Login_XML();
             this.usuario = usuario;
@@ -35,6 +38,7 @@ namespace Ventana_Juego
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            menu.Stop();
             Login.Login lo = new Login.Login();
             lo.ShowDialog();
         }
@@ -48,11 +52,13 @@ namespace Ventana_Juego
         {
             if (radioButton2.Checked)
             {
+                menu.Stop();
                 Form1 ventana_juego = new Form1(usuario, false, 1);
                 ventana_juego.ShowDialog();
             }
             else if (radioButton1.Checked)
             {
+                menu.Stop();
                 Form1 ventana_juego = new Form1(usuario, false, 2);
                 ventana_juego.ShowDialog();
             }
@@ -60,11 +66,13 @@ namespace Ventana_Juego
             {
                 if (radioButton4.Checked)
                 {
+                    menu.Stop();
                     Form1 ventana_juego = new Form1(usuario, true, 3);
                     ventana_juego.ShowDialog();
                 }
                 else
                 {
+                    menu.Stop();
                     Form1 ventana_juego = new Form1(usuario, false, 3);
                     ventana_juego.ShowDialog();
                 }

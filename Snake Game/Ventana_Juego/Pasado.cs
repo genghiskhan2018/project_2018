@@ -13,12 +13,13 @@ namespace Ventana_Juego
 {
     public partial class Pasado : Form
     {
-        SoundPlayer fin = new SoundPlayer("fin.wav");
+        SoundPlayer fin = new SoundPlayer("victory.wav");
+        SoundPlayer menu = new SoundPlayer("menu.wav");
         int contador = 0;
         public Pasado()
         {
             InitializeComponent();
-            fin.Play();
+            fin.PlayLooping();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Ventana_Juego
         {  
             this.Dispose();
             fin.Stop();
+            menu.Play();
         }
     }
 }
